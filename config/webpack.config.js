@@ -40,6 +40,7 @@ const webpackDevClientEntry = require.resolve(
 const reactRefreshOverlayEntry = require.resolve(
   'react-dev-utils/refreshOverlayInterop'
 );
+// const isDev = process.env.NODE_ENV === 'development'
 
 // Some apps do not need the benefits of saving a web request, so not inlining the chunk
 // makes for a smoother build process.
@@ -213,7 +214,19 @@ module.exports = function (webpackEnv) {
       // webpack uses `publicPath` to determine where the app is being served from.
       // It requires a trailing slash, or the file assets will get an incorrect path.
       // We inferred the "public path" (such as / or /my-project) from homepage.
+
+      // --- NOTE: homepage setting
+      // WAY 1:
+      // publicPath: isDev ? '/' : paths.publicUrlOrPath,
+      /* WAY 2: If you use external router
+      For example NGINX:
+        location / {
+          root /home/projects/pravosleva-blog/backend/public;
+        }
+      */
       publicPath: paths.publicUrlOrPath,
+      // ---
+
       // Point sourcemap entries to original disk location (format as URL on Windows)
       devtoolModuleFilenameTemplate: isEnvProduction
         ? info =>

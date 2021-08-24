@@ -1,10 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
-import '~/App.css';
+import './App.css';
 
 const isDev = process.env.NODE_ENV === 'development'
 
-function App() {
+export const App = (): JSX.Element => {
   return (
     <div className="App">
       <header className="App-header">
@@ -30,5 +30,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

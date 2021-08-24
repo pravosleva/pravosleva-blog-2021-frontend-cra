@@ -12,7 +12,7 @@ if [ ! -d "${EXTERNAL_DIR}/backend/public/cra" ]
 fi
 
 echo '1/3 Clear "backend/public/cra/*" directory...'
-rm -rf ${EXTERNAL_DIR}/backend/public/demo/*
+rm -rf ${EXTERNAL_DIR}/backend/public/cra/*
 
 echo '2/3 Move fersh build...'
 mv -v ${EXTERNAL_DIR}/frontend/build/* "${EXTERNAL_DIR}/backend/public/cra/"

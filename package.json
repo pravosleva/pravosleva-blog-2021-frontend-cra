@@ -7,7 +7,8 @@
     "build:remote-prod": "yarn deploy-app -d prod:demo",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "analyze": "node scripts/analyze.js"
   },
   "dependencies": {
     "@babel/core": "7.12.3",
@@ -156,6 +157,8 @@
     ]
   },
   "devDependencies": {
-    "deploy-app": "^1.0.3"
+    "deploy-app": "^1.0.3",
+    "progress-bar-webpack-plugin": "^2.1.0",
+    "webpack-bundle-analyzer": "^4.4.2"
   }
 }

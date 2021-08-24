@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import '~/App.css';
 
+const isDev = process.env.NODE_ENV === 'development'
+
 function App() {
   return (
     <div className="App">
@@ -12,12 +14,18 @@ function App() {
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href={isDev ? 'http://localhost:1337/cra/analyze/report.html' : '/analyze/report.html'}
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Bundle analyzer
         </a>
+        <pre>
+          {JSON.stringify({
+            NODE_ENV: process.env.NODE_ENV,
+            REACT_APP_API_ENDPOINT: process.env.REACT_APP_API_ENDPOINT
+          }, null, 2)}
+        </pre>
       </header>
     </div>
   );

@@ -1,7 +1,14 @@
 {
-  "name": "frontend",
+  "name": "pravosleva-blog-no-ssr-front",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "build:local-prod": "yarn build && bash ./postbuild.sh",
+    "build:remote-prod": "yarn deploy-app -d prod:demo",
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js"
+  },
   "dependencies": {
     "@babel/core": "7.12.3",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
@@ -72,12 +79,6 @@
     "webpack-dev-server": "3.11.1",
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "5.1.4"
-  },
-  "scripts": {
-    "build:local-prod": "yarn build && bash ./postbuild.sh",
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
   },
   "eslintConfig": {
     "extends": [
@@ -153,5 +154,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "deploy-app": "^1.0.3"
   }
 }

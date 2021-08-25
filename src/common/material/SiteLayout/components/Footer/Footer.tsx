@@ -8,7 +8,7 @@ export const Footer = () => {
   return (
     <div className={classes.bg}>
       <Container maxWidth='md'>
-        <div className={classes.content}>{new Date().getFullYear()} Footer</div>
+        <div className={classes.content}>{new Date().getFullYear()}</div>
       </Container>
     </div>
   )

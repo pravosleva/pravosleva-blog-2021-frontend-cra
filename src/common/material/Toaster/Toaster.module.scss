@@ -12,8 +12,8 @@
 
   @media (min-width: calc(#{$md}px + 1px)) {
     top: 24px;
-    right: 24px;
-    left: auto;
+    left: 24px;
+
     justify-content: flex-start;
 
     min-width: 300px;

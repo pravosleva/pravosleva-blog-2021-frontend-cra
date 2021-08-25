@@ -17,6 +17,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: 'inherit',
     },
     listItem: {
+      transition: 'all 0.05s linear',
       cursor: 'pointer',
       '&:hover': {
         color: '#FFF',

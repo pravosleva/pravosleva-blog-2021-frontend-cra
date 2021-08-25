@@ -37,7 +37,7 @@ export const ProjectsPage = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <h2>2021</h2>
-            <p>Прочее</p>
+            <p>smartprice.ru</p>
             <List className={classes.root} subheader={<li />}>
               <ListItem
                 className={classes.listItem}
@@ -79,7 +79,7 @@ export const ProjectsPage = () => {
           </Grid>
           <Grid item xs={12} md={6}>
             <h2>2019</h2>
-            <p>Анализ обещаний разраба</p>
+            <p>Анализ прогнозов команды</p>
             <List className={classes.root} subheader={<li />}>
               <ListItem
                 className={classes.listItem}

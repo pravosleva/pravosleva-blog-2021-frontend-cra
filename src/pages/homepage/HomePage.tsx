@@ -18,8 +18,7 @@ export const HomePage = () => {
   )
   const goExternalLink = useCallback(
     (link: string) => () => {
-      const newLink = isDev ? `http://localhost:1337/cra${link}` : link
-      window.open(newLink, "_blank");
+      window.open(link, "_blank");
     },
     []
   )
@@ -31,17 +30,29 @@ export const HomePage = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <List className={classes.root} subheader={<li />}>
-              <ListItem
+              {/* <ListItem
                 className={classes.listItem}
                 onClick={goToPage('/articles')}
               >
                 <ListItemText primary="Все статьи" secondary="All articles" />
+              </ListItem> */}
+              <ListItem
+                className={classes.listItem}
+                onClick={goToPage('/projects')}
+              >
+                <ListItemText primary="Проекты" secondary="Projects" />
               </ListItem>
               <ListItem
                 className={classes.listItem}
                 onClick={goExternalLink('/analyze/report.html')}
               >
                 <ListItemText primary="Анализ сборки" secondary="Bundle analyzer" />
+              </ListItem>
+              <ListItem
+                className={classes.listItem}
+                onClick={goExternalLink('/documentation/v1.0.0')}
+              >
+                <ListItemText primary="API Dcoumentation" secondary="This app API endpoints" />
               </ListItem>
             </List>
           </Grid>

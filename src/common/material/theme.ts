@@ -1,6 +1,6 @@
 import red from '@material-ui/core/colors/red'
 import {
-  createMuiTheme,
+  createTheme,
   withStyles,
 } from '@material-ui/core/styles'
 // import { Breakpoint } from '@material-ui/core/styles/createBreakpoints'
@@ -31,8 +31,6 @@ export const defaultTheme = {
     svyaznoy: {
       main: '#4c1e87',
       yellow: '#ffc800',
-
-      // Fake:
       light: '#757ce8',
       dark: '#002884',
       contrastText: '#fff',
@@ -107,4 +105,4 @@ export const GlobalCss = withStyles((theme) => ({
   },
 }))(() => null)
 
-export const theme = createMuiTheme(defaultTheme)
+export const theme = createTheme(defaultTheme)

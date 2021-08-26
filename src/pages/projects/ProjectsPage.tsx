@@ -153,6 +153,12 @@ export const ProjectsPage = () => {
               >
                 <ListItemText primary="Working time" secondary="Анализ обратной связи от менеджеров отдела продаж" />
               </ListItem>
+              <ListItem
+                className={classes.listItem}
+                onClick={goExternalLink('https://www.npmjs.com/package/liquid-parameters')}
+              >
+                <ListItemText primary="Liquid parameters calc" secondary="HVAC engineer tool" />
+              </ListItem>
             </List>
           </Grid>
           <Grid item xs={12} md={6}>
@@ -164,6 +170,24 @@ export const ProjectsPage = () => {
                 onClick={goExternalLink('https://selection4test.ru/projects/sezon-lines')}
               >
                 <ListItemText primary="SEZON VENT" secondary="Подбор вент оборудования завода SEZON" />
+              </ListItem>
+              <ListItem
+                className={classes.listItem}
+                onClick={goExternalLink('https://www.npmjs.com/package/id-diagram')}
+              >
+                <ListItemText primary="id-diagram" secondary="иаграмма влажного воздуха (оцифровка)" />
+              </ListItem>
+              <ListItem
+                className={classes.listItem}
+                onClick={goExternalLink('https://www.npmjs.com/package/get-parabola')}
+              >
+                <ListItemText primary="get-parabola" secondary="Math functions tools" />
+              </ListItem>
+              <ListItem
+                className={classes.listItem}
+                onClick={goExternalLink('https://www.npmjs.com/package/interpolate-by-pravosleva')}
+              >
+                <ListItemText primary="interpolate-by-pravosleva" secondary="Math interpolate lib" />
               </ListItem>
             </List>
           </Grid>

@@ -115,7 +115,7 @@ export const ProjectsPage = () => {
                 className={classes.listItem}
                 onClick={goExternalLink('https://selection4test.ru/projects/auxiliary-calc')}
               >
-                <ListItemText primary="Liquid calc" secondary="Расчет параметров жидкости" />
+                <ListItemText primary="Liquid parameters (UI & lib)" secondary="Расчет параметров жидкости" />
               </ListItem>
               <ListItem
                 className={classes.listItem}
@@ -157,7 +157,7 @@ export const ProjectsPage = () => {
                 className={classes.listItem}
                 onClick={goExternalLink('https://www.npmjs.com/package/liquid-parameters')}
               >
-                <ListItemText primary="Liquid parameters calc" secondary="HVAC engineer tool" />
+                <ListItemText primary="Liquid parameters (lib)" secondary="HVAC engineer's tool" />
               </ListItem>
             </List>
           </Grid>

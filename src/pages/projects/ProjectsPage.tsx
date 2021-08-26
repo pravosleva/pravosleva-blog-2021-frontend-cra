@@ -175,7 +175,7 @@ export const ProjectsPage = () => {
                 className={classes.listItem}
                 onClick={goExternalLink('https://www.npmjs.com/package/id-diagram')}
               >
-                <ListItemText primary="id-diagram" secondary="иаграмма влажного воздуха (оцифровка)" />
+                <ListItemText primary="id-diagram" secondary="Диаграмма влажного воздуха (оцифровка)" />
               </ListItem>
               <ListItem
                 className={classes.listItem}

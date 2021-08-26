@@ -2,27 +2,27 @@ import React, { useCallback } from 'react'
 // import { Link } from 'react-router-dom'
 import { Grid, List, ListItem, ListItemText } from '@material-ui/core'
 import { useStyles } from './styles'
-import { useRouter } from '~/common/hooks/useRouter'
+// import { useRouter } from '~/common/hooks/useRouter'
 import { ResponsiveBlock } from '~/common/material/ResponsiveBlock'
 
-const isDev = process.env.NODE_ENV === 'development'
+// const isDev = process.env.NODE_ENV === 'development'
 
 export const ProjectsPage = () => {
   const classes = useStyles()
-  const router = useRouter()
-  const goToPage = useCallback(
-    (link: string) => () => {
-      router.push(link)
-    },
-    [router]
-  )
-  const goLinkThisCraProjectInThisStrapiServer = useCallback(
-    (link: string) => () => {
-      const newLink = isDev ? `http://localhost:1337/cra${link}` : link
-      window.open(newLink, "_blank");
-    },
-    []
-  )
+  // const router = useRouter()
+  // const goToPage = useCallback(
+  //   (link: string) => () => {
+  //     router.push(link)
+  //   },
+  //   [router]
+  // )
+  // const goLinkThisCraProjectInThisStrapiServer = useCallback(
+  //   (link: string) => () => {
+  //     const newLink = isDev ? `http://localhost:1337/cra${link}` : link
+  //     window.open(newLink, "_blank");
+  //   },
+  //   []
+  // )
   const goExternalLink = useCallback(
     (link: string) => () => {
       window.open(link, "_blank");
@@ -129,13 +129,6 @@ export const ProjectsPage = () => {
               >
                 <ListItemText primary="HEVA FC" secondary="Подбор модульных чиллеров Midea" />
               </ListItem>
-              <ListItem
-                className={classes.listItem}
-                onClick={goExternalLink('https://selection4test.ru/projects/sezon-lines')}
-              >
-                <ListItemText primary="SEZON VENT (remake 2015)" secondary="Подбор вент оборудования завода SEZON 2015" />
-              </ListItem>
-              
             </List>
           </Grid>
           <Grid item xs={12} md={6}>
@@ -159,6 +152,18 @@ export const ProjectsPage = () => {
                 onClick={goExternalLink('https://selection4test.ru/projects/total-work-time-analysis')}
               >
                 <ListItemText primary="Working time" secondary="Анализ обратной связи от менеджеров отдела продаж" />
+              </ListItem>
+            </List>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <h2>2015</h2>
+            <p>zavodsezon.ru</p>
+            <List className={classes.root} subheader={<li />}>
+              <ListItem
+                className={classes.listItem}
+                onClick={goExternalLink('https://selection4test.ru/projects/sezon-lines')}
+              >
+                <ListItemText primary="SEZON VENT" secondary="Подбор вент оборудования завода SEZON" />
               </ListItem>
             </List>
           </Grid>

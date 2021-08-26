@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 // import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 // import { MainContext } from '~/common/context/MainContext'
@@ -24,7 +24,7 @@ export const BreadCrumbs = () => {
 
         {pathname === '/' && (
           <div className={classes.rightSide}>
-            <Link to="/">Главная</Link>
+            <span className={classes.muted}>Главная</span>
           </div>
         )}
         {pathname === '/articles' && (
@@ -36,14 +36,6 @@ export const BreadCrumbs = () => {
         {pathname.includes('/articles/') && pathname.length > 10 && (
           <div className={classes.rightSide}>
             <Link to="/">Главная</Link><span>/</span><Link to="/projects">Проекты</Link> /{' '}
-            {/*!remontLogic?.name && (
-              <span className={classes.muted}>Please wait...</span>
-            )}
-            {!!remontLogic?.name && (
-              <span style={{ whiteSpace: 'nowrap' }} className={classes.muted}>
-                {remontLogic.name.length <= 35 ? remontLogic.name : `${remontLogic.name.slice(0, 34)}...`}
-              </span>
-            )*/}
           </div>
         )}
         {pathname === '/projects' && (

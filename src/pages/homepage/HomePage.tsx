@@ -5,7 +5,7 @@ import { useStyles } from './styles'
 import { useRouter } from '~/common/hooks/useRouter'
 import { ResponsiveBlock } from '~/common/material/ResponsiveBlock'
 
-const isDev = process.env.NODE_ENV === 'development'
+// const isDev = process.env.NODE_ENV === 'development'
 
 export const HomePage = () => {
   const classes = useStyles()
@@ -52,7 +52,7 @@ export const HomePage = () => {
                 className={classes.listItem}
                 onClick={goExternalLink('/documentation/v1.0.0')}
               >
-                <ListItemText primary="API Dcoumentation" secondary="This app API endpoints" />
+                <ListItemText primary="API Documentation" secondary="This app API endpoints" />
               </ListItem>
             </List>
           </Grid>

@@ -5,6 +5,7 @@ export const apiErrorHandler = (res: any): any | ApiError => {
     // For example like uremont api
     return res
   } else {
+    // console.log(res)
     throw new ApiError(res?.errors)
   }
 }

@@ -26,3 +26,5 @@ middlewares.push(sagaMiddleware)
 export const store: IRootState = createStore(rootReducer, composeEnhancers(applyMiddleware(...middlewares)))
 
 sagaMiddleware.run(rootSaga)
+
+export * from './IRootState'

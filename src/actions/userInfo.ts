@@ -2,9 +2,14 @@ export const ASYNC_LOAD_USER_INFO_DATA = 'ASYNC_LOAD_USER_INFO_DATA'
 export const SET_USER_INFO_DATA = 'SET_USER_INFO_DATA'
 export const SET_IS_LOADING_USER_INFO_DATA = 'SET_IS_LOADING_USER_INFO_DATA'
 export const SET_IS_LOADED_USER_INFO_DATA = 'SET_IS_LOADED_USER_INFO_DATA'
+export const LOGIN = 'LOGIN'
+export const ASYNC_LOAD_TEST_DATA = 'ASYNC_LOAD_TEST_DATA'
 
 export const asyncLoadUserInfoData = () => {
   return { type: ASYNC_LOAD_USER_INFO_DATA }
+}
+export const login = () => {
+  return { type: LOGIN }
 }
 
 export const setIsLoadingUserInfoData = (isLoading: boolean) => {

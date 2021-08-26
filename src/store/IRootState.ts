@@ -11,5 +11,7 @@ export interface IRootState extends Store {
   //   type: string | null
   //   isDetected: boolean
   // }
-  userInfo: any
+  userInfo: {
+    isLoading: boolean
+  }
 }

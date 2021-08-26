@@ -1,5 +1,5 @@
 import { put, takeLatest, call } from 'redux-saga/effects'
-import { ASYNC_LOAD_USER_INFO_DATA, setIsLoadingUserInfoData, setUserInfoData, showAsyncToast } from '~/actions'
+import { ASYNC_LOAD_TEST_DATA, setIsLoadingUserInfoData, setUserInfoData, showAsyncToast } from '~/actions'
 import {
   apiErrorHandler,
   // IResponseLocalResultSuccess, IResponseLocalResultError
@@ -58,5 +58,5 @@ function* asyncLoadUserInfoDataWorker() {
 }
 
 export function* watchAsyncLoadTestData() {
-  yield takeLatest(ASYNC_LOAD_USER_INFO_DATA, asyncLoadUserInfoDataWorker)
+  yield takeLatest(ASYNC_LOAD_TEST_DATA, asyncLoadUserInfoDataWorker)
 }

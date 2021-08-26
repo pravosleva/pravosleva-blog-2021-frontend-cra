@@ -49,7 +49,7 @@ function* asyncLoadUserInfoDataWorker() {
       })
     )
   } else {
-    // NOTE: Unnecessary
+    // NOTE: Необязательно для данной проверки
     // yield put(
     //   showAsyncToast({
     //     text: data.msg,

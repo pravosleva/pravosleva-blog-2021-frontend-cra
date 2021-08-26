@@ -1,7 +1,8 @@
 import { put, takeLatest, call } from 'redux-saga/effects'
 import { ASYNC_LOAD_TEST_DATA, setIsLoadingUserInfoData, setUserInfoData, showAsyncToast } from '~/actions'
 import {
-  apiErrorHandler,
+  // apiErrorHandler,
+  // NOTE: Хорошо бы описать возможные форматы ответов
   // IResponseLocalResultSuccess, IResponseLocalResultError
 } from '~/utils/errors/api'
 import axios from 'axios'
@@ -12,10 +13,16 @@ async function fetchUserInfoData(url: string): Promise<any> {
   const result = await axios({
     method: 'get',
     url,
-    // validateStatus: (status: number) => status >= 200 && status < 300, // default
+    // NOTE: Актуально в случае если бэк использует статусы ошибок при ответе (1)
+    // validateStatus: (status: number) => status >= 200 && status < 500, // default
   })
+
+    // NOTE: Актуально в случае если бэк использует статусы ошибок при ответе (2)
     .then(httpErrorHandler) // res -> res.data
-    .then(apiErrorHandler) // data -> data
+
+    // NOTE: Для общепринятых соглашений о формате ошибок на проекте
+    // .then(apiErrorHandler) // data -> data
+
     .then((data: any) => ({
       isOk: true,
       response: data,

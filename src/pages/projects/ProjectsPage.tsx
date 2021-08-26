@@ -43,7 +43,7 @@ export const ProjectsPage = () => {
                 className={classes.listItem}
                 onClick={goExternalLink('https://t.me/pravosleva_bot')}
               >
-                <ListItemText primary="Telegram Bot @pravosleva_bot" secondary="Бот для различных опытов" />
+                <ListItemText primary="Telegram Bot @pravosleva_bot" secondary="Подопытный бот" />
               </ListItem>
               <ListItem
                 className={classes.listItem}

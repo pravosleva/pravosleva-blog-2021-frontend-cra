@@ -14,4 +14,11 @@ export interface IRootState extends Store {
   userInfo: {
     isLoading: boolean
   }
+  projectInModal: {
+    activeProgectId: string | null
+    isLoading: boolean
+    isLoaded: boolean
+    data: any | null
+    isModalOpened: boolean
+  }
 }

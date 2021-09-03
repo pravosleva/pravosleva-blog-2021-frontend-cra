@@ -14,6 +14,8 @@
     "@babel/core": "7.12.3",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "@mdi/js": "^5.9.55",
+    "@mdi/react": "^1.5.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "@svgr/webpack": "5.5.0",
     "@testing-library/jest-dom": "^5.11.4",
@@ -174,6 +176,7 @@
     "@types/react-router-dom": "^5.1.8",
     "deploy-app": "^1.0.3",
     "progress-bar-webpack-plugin": "^2.1.0",
+    "redux-logger": "^3.0.6",
     "webpack-bundle-analyzer": "^4.4.2"
   }
 }

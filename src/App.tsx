@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Routes } from '~/routes';
+import { Routes } from '~/routes'
 import { useDispatch } from 'react-redux'
 import {
   // showAsyncToast,

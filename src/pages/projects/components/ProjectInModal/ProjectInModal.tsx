@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button'
 import { Modal } from '~/common/material/Modal'
 import { mdiLoading } from '@mdi/js';
 import Icon from '@mdi/react'
+import { Content } from './components'
 
 export const ProjectInModal = () => {
   const dispatch = useDispatch()
@@ -35,7 +36,7 @@ export const ProjectInModal = () => {
               </div>
             ) :
               isProjectLoaded ? (
-                <pre style={{ whiteSpace: 'pre-wrap' }}>{JSON.stringify(projectData, null, 2)}</pre>
+                <Content sections={projectData.contentSections} />
               ) : <div style={{ minHeight: '200px' }}><Typography gutterBottom>Oops...</Typography></div>
           }
         </>

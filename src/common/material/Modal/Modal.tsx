@@ -60,7 +60,7 @@ type TProps = {
   contentRenderer: React.FC<any>
   titleRenderer: React.FC<any>
   actionsRenderer: React.FC<any>
-  maxWidth: 'sm' | 'md'
+  maxWidth: 'xl' | 'lg' | 'sm' | 'md' | 'xs'
   fullWidth?: boolean
 }
 

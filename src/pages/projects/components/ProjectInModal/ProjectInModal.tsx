@@ -36,7 +36,7 @@ export const ProjectInModal = () => {
             ) :
               isProjectLoaded ? (
                 <pre style={{ whiteSpace: 'pre-wrap' }}>{JSON.stringify(projectData, null, 2)}</pre>
-              ) : <Typography gutterBottom>Oops...</Typography>
+              ) : <div style={{ minHeight: '200px' }}><Typography gutterBottom>Oops...</Typography></div>
           }
         </>
       )}

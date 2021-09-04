@@ -1,9 +1,10 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 // import { Link } from 'react-router-dom'
 import { Grid, List, ListItem, ListItemText } from '@material-ui/core'
 import { useStyles } from './styles'
 import { useRouter } from '~/common/hooks/useRouter'
 import { ResponsiveBlock } from '~/common/material/ResponsiveBlock'
+import { ErrorInModal } from './components'
 
 // const isDev = process.env.NODE_ENV === 'development'
 
@@ -22,6 +23,13 @@ export const HomePage = () => {
     },
     []
   )
+  const [isErrorImModalOpened, setIsErrorImModalOpened] = useState(false)
+  const openErrInModal = useCallback(() => {
+    setIsErrorImModalOpened(true)
+  }, [])
+  const closeErrInModal = useCallback(() => {
+    setIsErrorImModalOpened(false)
+  }, [])
 
   return (
     <ResponsiveBlock isLimited={true}>
@@ -56,7 +64,18 @@ export const HomePage = () => {
               </ListItem>
             </List>
           </Grid>
+          <Grid item xs={12} md={6}>
+          <List className={classes.root} subheader={<li />}>
+              <ListItem
+                className={classes.listItem}
+                onClick={openErrInModal}
+              >
+                <ListItemText primary="Error Boundary sample" secondary="Experience" />
+              </ListItem>
+            </List>
+          </Grid>
         </Grid>
+        <ErrorInModal isOpened={isErrorImModalOpened} onClose={closeErrInModal} />
       </>
     </ResponsiveBlock>
   )

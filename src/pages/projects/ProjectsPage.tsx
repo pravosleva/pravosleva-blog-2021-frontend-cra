@@ -10,7 +10,7 @@ import { loadProjectData, setIsModalOpened, showAsyncToast } from '~/actions'
 
 import { ProjectInModal } from './components'
 
-// const isDev = process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === 'development'
 
 export const ProjectsPage = () => {
   const classes = useStyles()
@@ -61,7 +61,7 @@ export const ProjectsPage = () => {
                 <ListItem
                   className={classes.listItem}
                   onClick={() => {
-                    tstGetProject('612401db5c6dcee7210b482a')
+                    tstGetProject(isDev ? '612401db5c6dcee7210b482a' : '612cf8f8d25d9441a8b12852')
                   }}
                 >
                   <ListItemText primary="Get Project Sample" secondary="by this CRM API" />

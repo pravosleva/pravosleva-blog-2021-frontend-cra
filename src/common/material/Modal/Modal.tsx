@@ -6,6 +6,7 @@ import MuiDialogActions from '@material-ui/core/DialogActions'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 import Typography from '@material-ui/core/Typography'
+import { useWindowSize } from '~/common/hooks'
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -68,6 +69,8 @@ type TProps = {
 }
 
 export const Modal = ({ isOpened, onClose, titleRenderer, contentRenderer, actionsRenderer, maxWidth, fullWidth }: TProps) => {
+  const { isMobile } = useWindowSize()
+
   return (
     <Dialog
       onClose={onClose}
@@ -75,6 +78,7 @@ export const Modal = ({ isOpened, onClose, titleRenderer, contentRenderer, actio
       open={isOpened}
       fullWidth={fullWidth}
       maxWidth={maxWidth}
+      fullScreen={isMobile}
     >
       <DialogTitle id="customized-dialog-title" onClose={onClose}>
         {titleRenderer({})}

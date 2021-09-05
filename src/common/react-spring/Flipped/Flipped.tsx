@@ -2,11 +2,14 @@ import React, { useState, useCallback } from 'react'
 import { useSpring, animated } from 'react-spring'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { CSSProperties } from '@material-ui/styles';
+import clsx from 'clsx'
 
 type TProps = {
   frontRenderer: React.FC<any>
   backRenderer: React.FC<any>
   cardStyles: CSSProperties
+  wrapperClassName?: string
+  wrapperStyles?: CSSProperties
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -21,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export const Flipped = ({ frontRenderer, backRenderer, cardStyles }: TProps) => {
+export const Flipped = ({ frontRenderer, backRenderer, cardStyles, wrapperStyles, wrapperClassName }: TProps) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
   const toggleFlip = useCallback(() => {
     setIsFlipped((s) => !s)
@@ -43,7 +46,8 @@ export const Flipped = ({ frontRenderer, backRenderer, cardStyles }: TProps) => 
       // onMouseEnter={hadleFlipOn}
       // onMouseLeave={hadleFlipOff}
       onClick={toggleFlip}
-      className={classes.rel}
+      className={clsx(classes.rel, wrapperClassName)}
+      style={wrapperStyles || {}}
     >
       <animated.div
         className={classes.abs}

@@ -39,6 +39,12 @@ export const BreadCrumbs = () => {
             <span className={classes.muted}>Что-то интересное</span>
           </div>
         )}
+        {pathname === '/try-ui' && (
+          <div className={classes.rightSide}>
+            <Link to="/">Главная</Link><span>/</span>
+            <span className={classes.muted}>Try UI</span>
+          </div>
+        )}
       </div>
     </Container>
   )

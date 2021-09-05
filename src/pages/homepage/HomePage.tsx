@@ -77,6 +77,12 @@ export const HomePage = () => {
               >
                 <ListItemText primary="Error Boundary sample" secondary="Experience" />
               </ListItem>
+              {/* <ListItem
+                className={classes.listItem}
+                onClick={goToPage('/try-ui')}
+              >
+                <ListItemText primary="Try UI" secondary="React animations, etc." />
+              </ListItem> */}
             </List>
           </Grid>
         </Grid>

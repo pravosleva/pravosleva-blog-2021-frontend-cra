@@ -12,6 +12,7 @@ export type TCRMPage = {
       url: string
       [key: string]: any
     }
+    metaDescription: string
   }
   createdAt: string // 2021-08-23T20:15:23.828Z
   updatedAt: string // 2021-09-04T23:54:54.195Z

@@ -7,6 +7,7 @@ import {
 } from '~/actions'
 import { useDispatch } from 'react-redux'
 import { useCallback } from 'react'
+import { getNormalizedDate } from '~/utils/timeConverter'
 
 type TProps = {
   crmPage: TCRMPage
@@ -15,7 +16,7 @@ type TProps = {
 export const GridItem = ({ crmPage }: TProps) => {
   const { id, shortName, metadata, createdAt } = crmPage
   const classes = useStyles()
-  const { shareImage: { url } } = metadata
+  const { shareImage: { url }, metaDescription } = metadata
   const dispatch = useDispatch()
   const getProject = useCallback((id: string) => {
     dispatch(setIsModalOpened(true))
@@ -32,11 +33,14 @@ export const GridItem = ({ crmPage }: TProps) => {
     >
       <div className={classes.gridItemBox}>
         <div className={classes.gridItemTitle}><h3>{shortName}</h3></div>
-        <div className={classes.gridItemDescription}>{createdAt}</div>
+        <div className={classes.gridItemDescription}>{metaDescription}</div>
         <div className={classes.gridItemAction}>
-          <Button size='small' onClick={() => getProject(id)} variant='outlined' color="primary">
-            Read
-          </Button>
+          <div>
+            <Button size='small' onClick={() => getProject(id)} variant='outlined' color="primary">
+              Read
+            </Button>
+          </div>
+          <div>{getNormalizedDate(createdAt)}</div>
         </div>
       </div>
     </div>

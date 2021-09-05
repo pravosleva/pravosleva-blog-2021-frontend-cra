@@ -22,7 +22,12 @@ const GET_CRM_PAGES = `
     )  {
       id
       shortName
-      metadata { shareImage { url } }
+      metadata {
+        shareImage {
+          url
+        }
+        metaDescription
+      }
       updatedAt
       createdAt
     }

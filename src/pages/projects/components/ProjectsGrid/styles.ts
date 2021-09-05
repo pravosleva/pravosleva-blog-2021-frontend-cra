@@ -22,13 +22,13 @@ export const useStyles = makeStyles((theme) => ({
   },
   gridItemBox: {
     height: '100%',
-    background: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 1))',
+    background: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7))',
     borderRadius: 'inherit',
     backgroundImage: '',
     padding: theme.spacing(2, 2, 2, 2),
-    '& > div:not(:last-child)': {
-      marginBottom: theme.spacing(2),
-    },
+    // '& > div:not(:last-child)': {
+    //   marginBottom: theme.spacing(2),
+    // },
     color: '#fff',
 
     display: 'flex',
@@ -36,8 +36,16 @@ export const useStyles = makeStyles((theme) => ({
   },
   gridItemTitle: {},
   gridItemDescription: {
-    marginBottom: 'auto',
+    // marginBottom: 'auto',
+    marginBottom: theme.spacing(2),
     height: '100%',
   },
-  gridItemAction: {},
+  gridItemAction: {
+    display: 'flex',
+    alignItems: 'center',
+    '& > div:last-child': {
+      marginLeft: 'auto',
+    },
+    paddingRight: theme.spacing(1),
+  },
 }))

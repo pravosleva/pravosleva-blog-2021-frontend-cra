@@ -5,38 +5,6 @@ import red from '@material-ui/core/colors/red'
 // import green from '@material-ui/core/colors/green'
 
 export const useStyles = makeStyles((theme) => ({
-  wrapper: {
-    border: '1px dashed red',
-    // display: 'flex',
-    // flexWrap: 'wrap',
-    // flexDirection: 'row',
-    display: 'grid',
-    // gridTemplateColumns: '1fr 1fr 1fr 1fr',
-    // gridTemplateRows: '1fr 1fr 1fr 1fr',
-    // gridGap: theme.spacing(1),
-    columnGap: theme.spacing(1),
-    rowGap: theme.spacing(1),
-    [theme.breakpoints.down('sm')]: {
-      gridTemplateColumns: 'repeat(auto-fit, minmax(90px, 1fr))',
-    },
-    [theme.breakpoints.up('md')]: {
-      gridTemplateColumns: 'repeat(auto-fit, minmax(90px, 1fr))',
-    },
-    gridAutoFlow: 'dense',
-    '& > img': {
-      // border: '1px solid red',
-      width: '100%',
-      height: '50px',
-      objectFit: 'cover',
-      // backgroundPosition: '25% 75%',
-      // backgroundSize: 'cover',
-      borderRadius: '8px',
-    },
-    // '& > img:not(:last-child)': {
-    //   marginRight: theme.spacing(1),
-    // },
-  },
-
   srLWrapperLayout: {
     // border: '1px solid red',
     '& > div': {

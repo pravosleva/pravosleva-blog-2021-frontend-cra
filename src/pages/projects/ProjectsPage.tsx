@@ -1,13 +1,11 @@
-import { useEffect, useCallback } from 'react'
+import { useEffect } from 'react'
 import { ResponsiveBlock } from '~/common/material/ResponsiveBlock'
 import {
   loadCrmPagesData,
-  setIsModalOpened,
-  loadProjectData,
 } from '~/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { IRootState } from '~/store'
-import { Button } from '@material-ui/core'
+import { ProjectsGrid } from './components'
 
 export const ProjectsPage = () => {
   const dispatch = useDispatch()
@@ -19,11 +17,6 @@ export const ProjectsPage = () => {
     dispatch(loadCrmPagesData())
   }, [dispatch])
 
-  const getProject = useCallback((id: string) => {
-    dispatch(setIsModalOpened(true))
-    dispatch(loadProjectData(id))
-  }, [dispatch])
-
   return (
     <ResponsiveBlock isLimited={true}>
       <>
@@ -31,13 +24,7 @@ export const ProjectsPage = () => {
         {
           isPagesLoaded
           ? pages.length > 0
-            ? (
-              pages.map(({ id, shortName }) => (
-                <Button key={id} size='small' onClick={() => getProject(id)} variant='outlined' color="primary">
-                  {shortName}
-                </Button>
-              ))
-            )
+            ? <ProjectsGrid projects={pages} />
             : 'No pages yet...'
           : isPagesLoading
               ? 'Loading...'

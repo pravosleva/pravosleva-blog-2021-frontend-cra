@@ -7,6 +7,12 @@ import {
 export type TCRMPage = {
   id: string
   shortName: string
+  metadata: {
+    shareImage: {
+      url: string
+      [key: string]: any
+    }
+  }
   createdAt: string // 2021-08-23T20:15:23.828Z
   updatedAt: string // 2021-09-04T23:54:54.195Z
 }

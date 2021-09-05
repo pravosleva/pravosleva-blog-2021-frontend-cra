@@ -17,9 +17,12 @@ import { ApiError } from '~/utils/errors/api'
 // NOTE: For example https://github.com/pravosleva/my-remont-2020-frontend.demo/blob/main/src/pages/projects/Projects.tsx
 const GET_CRM_PAGES = `
   {
-    pages(sort: "createdAt:DESC")  {
+    pages(
+      sort: "createdAt:DESC"
+    )  {
       id
       shortName
+      metadata { shareImage { url } }
       updatedAt
       createdAt
     }
@@ -72,7 +75,6 @@ function* asyncLoadCrmPagesWorker() {
     //   showAsyncToast({ text: `${data.response.length} received`, delay: 5000, type: 'success' })
     // )
   } else {
-    // NOTE: Необязательно для данной проверки
     yield put(
       showAsyncToast({
         text: data.msg,

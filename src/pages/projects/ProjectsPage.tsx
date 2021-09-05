@@ -24,7 +24,6 @@ export const ProjectsPage = () => {
     dispatch(loadProjectData(id))
   }, [dispatch])
 
-
   return (
     <ResponsiveBlock isLimited={true}>
       <>
@@ -44,7 +43,6 @@ export const ProjectsPage = () => {
               ? 'Loading...'
               : 'Not loaded'
         }
-        {/* <pre style={{ whiteSpace: 'pre-wrap' }}>{JSON.stringify(pages, null, 2)}</pre> */}
       </>
     </ResponsiveBlock>
   )

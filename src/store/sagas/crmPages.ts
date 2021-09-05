@@ -69,11 +69,7 @@ function* asyncLoadCrmPagesWorker() {
     yield put(setCrmPagesData(data.response))
     yield put(setIsLoadedCrmPagesData(true))
     // yield put(
-    //   showAsyncToast({
-    //     text: `${data.response.length} received`,
-    //     delay: 5000,
-    //     type: 'success',
-    //   })
+    //   showAsyncToast({ text: `${data.response.length} received`, delay: 5000, type: 'success' })
     // )
   } else {
     // NOTE: Необязательно для данной проверки
@@ -91,5 +87,4 @@ function* asyncLoadCrmPagesWorker() {
 
 export function* watchCrmPages() {
   yield takeLatest(LOAD_CRM_PAGES_DATA, asyncLoadCrmPagesWorker)
-  // yield takeLatest(LOGIN, loginWorker)
 }

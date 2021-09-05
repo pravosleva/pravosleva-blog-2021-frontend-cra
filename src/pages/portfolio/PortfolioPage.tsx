@@ -1,31 +1,15 @@
 import { useCallback } from 'react'
-// import { Link } from 'react-router-dom'
 import { Grid, List, ListItem, ListItemText } from '@material-ui/core'
 import { useStyles } from './styles'
-// import { useRouter } from '~/common/hooks/useRouter'
 import { ResponsiveBlock } from '~/common/material/ResponsiveBlock'
 import { useDispatch } from 'react-redux'
 import { loadProjectData, setIsModalOpened } from '~/actions'
-// import { IRootState } from '~/store'
 
 const isDev = process.env.NODE_ENV === 'development'
 
 export const PortfolioPage = () => {
   const classes = useStyles()
-  // const router = useRouter()
-  // const goToPage = useCallback(
-  //   (link: string) => () => {
-  //     router.push(link)
-  //   },
-  //   [router]
-  // )
-  // const goLinkThisCraProjectInThisStrapiServer = useCallback(
-  //   (link: string) => () => {
-  //     const newLink = isDev ? `http://localhost:1337/cra${link}` : link
-  //     window.open(newLink, "_blank");
-  //   },
-  //   []
-  // )
+
   const goExternalLink = useCallback(
     (link: string) => () => {
       window.open(link, "_blank");
@@ -50,14 +34,6 @@ export const PortfolioPage = () => {
               <List className={classes.root} subheader={<li />}>
                 <ListItem
                   className={classes.listItem}
-                  onClick={() => {
-                    tstGetProject(isDev ? '612401db5c6dcee7210b482a' : '612cf8f8d25d9441a8b12852')
-                  }}
-                >
-                  <ListItemText primary="Get Project Sample" secondary="by this CRM API" />
-                </ListItem>
-                <ListItem
-                  className={classes.listItem}
                   onClick={goExternalLink('https://t.me/pravosleva_bot')}
                 >
                   <ListItemText primary="Telegram Bot @pravosleva_bot" secondary="Подопытный бот" />
@@ -70,7 +46,9 @@ export const PortfolioPage = () => {
                 </ListItem>
                 <ListItem
                   className={classes.listItem}
-                  onClick={goExternalLink('http://pravosleva.ru/express-helper/qr/swagger')}
+                  onClick={() => {
+                    tstGetProject(isDev ? '612401db5c6dcee7210b482a' : '612cf8f8d25d9441a8b12852')
+                  }}
                 >
                   <ListItemText primary="QR Authorization" secondary="QR auth experience (password: qrdoc)" />
                 </ListItem>

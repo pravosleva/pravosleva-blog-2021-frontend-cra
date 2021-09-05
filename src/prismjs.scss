@@ -10,9 +10,10 @@ $gap: 16;
 
 div.code-toolbar,
 pre[class*='language-'] {
-  max-width: calc(100vw - 76px);
+  width: 100%;
+  // max-width: calc(100vw - 76px);
   @media (min-width: #{$sm}px) and (max-width: #{$md}px) {
-    max-width: calc(100vw - 76px - 89px);
+    // max-width: calc(100vw - 76px - 89px);
   }
   border-radius: 8px;
 }

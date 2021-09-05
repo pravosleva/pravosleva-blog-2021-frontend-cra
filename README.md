@@ -1,6 +1,8 @@
 # pravosleva-blog-2021 (CRA based)
 
-Для самого дешевого тарифа firstvds
+It's part of [fullstack](https://github.com/pravosleva/pravosleva-blog-2021-no-ssr)
+
+> Для самого дешевого тарифа firstvds
 
 _`deploy-app-config.json` sample_
 ```json
@@ -21,9 +23,11 @@ _`deploy-app-config.json` sample_
 ## Development
 
 1. _`package.json`_
+
 Add `"proxy": "http://localhost:1337",`
 
 2. _`.env.development.local` sample_
+
 ```bash
 REACT_APP_API_ENDPOINT=http://localhost:1337
 ```
@@ -31,9 +35,11 @@ REACT_APP_API_ENDPOINT=http://localhost:1337
 ## Production
 
 1. _`package.json`_
+
 Remove `"proxy": "http://localhost:1337",`
 
 2. _`.env.production.local` sample_
+
 ```bash
 REACT_APP_API_ENDPOINT=http://pravosleva.ru/api
 ```

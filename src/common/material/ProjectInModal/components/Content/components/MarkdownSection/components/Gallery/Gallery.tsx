@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { TPhoto } from '~/pages/projects/components/ProjectInModal/components'
+import { TPhoto } from '~/common/material/ProjectInModal/components'
 import { useStyles } from './styles'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
 // import clsx from 'clsx'

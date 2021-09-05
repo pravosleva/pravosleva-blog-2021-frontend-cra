@@ -1,7 +1,7 @@
 import { baseRenderers } from '~/common/material/MDRenderers'
 import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
-import { TGallery } from '~/pages/projects/components/ProjectInModal/components'
+import { TGallery } from '~/common/material/ProjectInModal/components'
 import { Gallery as G } from './components'
 
 type TProps = {

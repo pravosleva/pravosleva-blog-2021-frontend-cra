@@ -1,11 +1,11 @@
 import { ResponsiveBlock } from '~/common/material/ResponsiveBlock'
 
-export const ArticlesPage = () => {
+export const SlugPage = () => {
   return (
     <ResponsiveBlock isLimited={true}>
       <>
-        <h1>Статьи</h1>
-        <p>im progress...</p>
+        <h1>SlugPage</h1>
+        <p>in progress...</p>
       </>
     </ResponsiveBlock>
   )

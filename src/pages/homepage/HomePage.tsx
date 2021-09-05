@@ -38,34 +38,39 @@ export const HomePage = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <List className={classes.root} subheader={<li />}>
-              {/* <ListItem
-                className={classes.listItem}
-                onClick={goToPage('/articles')}
-              >
-                <ListItemText primary="Все статьи" secondary="All articles" />
-              </ListItem> */}
               <ListItem
                 className={classes.listItem}
                 onClick={goToPage('/projects')}
               >
-                <ListItemText primary="Проекты" secondary="Projects" />
+                <ListItemText primary="Проекты" secondary="CRM" />
               </ListItem>
+              <ListItem
+                className={classes.listItem}
+                onClick={goToPage('/portfolio')}
+              >
+                <ListItemText primary="Что-то интересное" secondary="Ссылки, статьи и прочее" />
+              </ListItem>
+              
+            </List>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <List className={classes.root} subheader={<li />}>
               <ListItem
                 className={classes.listItem}
                 onClick={goExternalLink('/analyze/report.html')}
               >
-                <ListItemText primary="Анализ сборки" secondary="Bundle analyzer" />
+                <ListItemText primary="Анализ сборки" secondary="Webpack bundle analyzer build" />
               </ListItem>
               <ListItem
                 className={classes.listItem}
                 onClick={goExternalLink('/documentation/v1.0.0')}
               >
-                <ListItemText primary="API Documentation" secondary="This app API endpoints" />
+                <ListItemText primary="Documentation" secondary="This CRM API endpoints doc" />
               </ListItem>
             </List>
           </Grid>
           <Grid item xs={12} md={6}>
-          <List className={classes.root} subheader={<li />}>
+            <List className={classes.root} subheader={<li />}>
               <ListItem
                 className={classes.listItem}
                 onClick={openErrInModal}

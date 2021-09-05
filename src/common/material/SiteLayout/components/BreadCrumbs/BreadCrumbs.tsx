@@ -27,21 +27,16 @@ export const BreadCrumbs = () => {
             <span className={classes.muted}>Главная</span>
           </div>
         )}
-        {pathname === '/articles' && (
-          <div className={classes.rightSide}>
-            <Link to="/">Главная</Link><span>/</span>
-            <span className={classes.muted}>Статьи</span>
-          </div>
-        )}
-        {pathname.includes('/articles/') && pathname.length > 10 && (
-          <div className={classes.rightSide}>
-            <Link to="/">Главная</Link><span>/</span><Link to="/projects">Проекты</Link> /{' '}
-          </div>
-        )}
         {pathname === '/projects' && (
           <div className={classes.rightSide}>
             <Link to="/">Главная</Link><span>/</span>
             <span className={classes.muted}>Проекты</span>
+          </div>
+        )}
+        {pathname === '/portfolio' && (
+          <div className={classes.rightSide}>
+            <Link to="/">Главная</Link><span>/</span>
+            <span className={classes.muted}>Что-то интересное</span>
           </div>
         )}
       </div>

@@ -23,7 +23,7 @@ export const ProjectInModal = () => {
       isOpened={isModalOpened}
       onClose={closeModal}
       titleRenderer={() => (
-        <span>{projectData?.shortName}</span>
+        <span>{projectData?.shortName || 'Please wait...'}</span>
       )}
       maxWidth='md'
       fullWidth

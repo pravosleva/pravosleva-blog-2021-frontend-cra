@@ -1,6 +1,6 @@
 import Alert from '@material-ui/lab/Alert'
 import { Button } from '@material-ui/core'
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 
 type TProps = {
   resetErrorBoundary: () => void

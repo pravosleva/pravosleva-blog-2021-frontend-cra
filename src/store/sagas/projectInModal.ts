@@ -45,6 +45,7 @@ function* loadProjectDataWorker(action) {
   const { payload } = action
   yield put(setIsLoadingProjectData(true))
   yield put(setIsLoadedProjectData(false))
+  yield put(setProjectData(null))
 
   const data: IData = yield call(fetchUserInfoData, `${apiUrl}/pages/${payload}`)
 

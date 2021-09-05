@@ -37,7 +37,7 @@ export const useStyles = makeStyles((theme) => ({
   gridItemTitle: {},
   gridItemDescription: {
     // marginBottom: 'auto',
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(3),
     height: '100%',
   },
   gridItemAction: {

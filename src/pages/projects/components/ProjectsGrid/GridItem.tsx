@@ -1,6 +1,6 @@
 import { TCRMPage } from '~/store/reducers/crmPages'
 import { useStyles } from './styles'
-import { Button } from '@material-ui/core'
+// import { Button } from '@material-ui/core'
 import {
   setIsModalOpened,
   loadProjectData,
@@ -8,6 +8,7 @@ import {
 import { useDispatch } from 'react-redux'
 import { useCallback } from 'react'
 import { getNormalizedDate } from '~/utils/timeConverter'
+import { ThemedButton, EPartnerCode } from '~/common/material/ThemedButton'
 
 type TProps = {
   crmPage: TCRMPage
@@ -36,9 +37,9 @@ export const GridItem = ({ crmPage }: TProps) => {
         <div className={classes.gridItemDescription}>{metaDescription}</div>
         <div className={classes.gridItemAction}>
           <div>
-            <Button size='small' onClick={() => getProject(id)} variant='outlined' color="primary">
+            <ThemedButton partnerCode={EPartnerCode.Yellow} size='small' onClick={() => getProject(id)} variant='outlined' color="primary">
               Read
-            </Button>
+            </ThemedButton>
           </div>
           <div>{getNormalizedDate(createdAt)}</div>
         </div>

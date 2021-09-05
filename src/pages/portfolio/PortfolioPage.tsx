@@ -8,8 +8,6 @@ import { useDispatch } from 'react-redux'
 import { loadProjectData, setIsModalOpened } from '~/actions'
 // import { IRootState } from '~/store'
 
-import { ProjectInModal } from '~/common/material/ProjectInModal'
-
 const isDev = process.env.NODE_ENV === 'development'
 
 export const PortfolioPage = () => {
@@ -42,7 +40,6 @@ export const PortfolioPage = () => {
 
   return (
     <>
-      <ProjectInModal />
       <ResponsiveBlock isLimited={true}>
         <>
           <h1>Что-то интересное</h1>

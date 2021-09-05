@@ -6,6 +6,7 @@ import {
   asyncLoadUserInfoData,
 } from '~/actions'
 // import { IRootState } from '~/store/IRootState'
+import { ProjectInModal } from '~/common/material/ProjectInModal'
 
 export const App = () => {
   const dispatch = useDispatch()
@@ -20,6 +21,9 @@ export const App = () => {
   }, [dispatch])
 
   return (
-    <><Routes /></>
+    <>
+      <Routes />
+      <ProjectInModal />
+    </>
   )
 }

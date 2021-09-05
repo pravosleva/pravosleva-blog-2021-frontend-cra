@@ -1,7 +1,7 @@
 import { UniversalError } from '~/utils/errors'
 
 interface IError {
-  [x: string]: string[]
+  [key: string]: string[]
 }
 
 export class ApiError extends UniversalError {

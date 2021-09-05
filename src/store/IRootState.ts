@@ -1,5 +1,6 @@
 import { Store } from 'redux'
 // import { IToast } from '../actions'
+import { TCRMPages } from '~/store/reducers/crmPages'
 
 export interface IRootState extends Store {
   [x: string]: any
@@ -21,4 +22,5 @@ export interface IRootState extends Store {
     data: any | null
     isModalOpened: boolean
   }
+  crmPages: TCRMPages
 }

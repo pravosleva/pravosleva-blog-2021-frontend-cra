@@ -18,12 +18,22 @@ _`deploy-app-config.json` sample_
 }
 ```
 
-_`.env.development.local` sample_
+## Development
+
+1. _`package.json`_
+Add `"proxy": "http://localhost:1337",`
+
+2. _`.env.development.local` sample_
 ```bash
 REACT_APP_API_ENDPOINT=http://localhost:1337
 ```
 
-_`.env.production.local` sample_
+## Production
+
+1. _`package.json`_
+Remove `"proxy": "http://localhost:1337",`
+
+2. _`.env.production.local` sample_
 ```bash
 REACT_APP_API_ENDPOINT=http://pravosleva.ru/api
 ```

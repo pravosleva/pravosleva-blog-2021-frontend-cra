@@ -25,7 +25,7 @@ export const ProjectInModal = () => {
       titleRenderer={() => (
         <span>{projectData?.shortName}</span>
       )}
-      maxWidth='sm'
+      maxWidth='md'
       fullWidth
       contentRenderer={() => (
         <>

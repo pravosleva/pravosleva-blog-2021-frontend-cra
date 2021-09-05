@@ -76,17 +76,18 @@ export const GlobalCss = withStyles((theme) => ({
       color: theme.palette.primary.main,
     },
     h1: {
-      margin: theme.spacing(4, 0, 4, 0),
+      margin: theme.spacing(3, 0, 2, 0),
     },
     blockquote: {
       fontSize: '1em',
-      maxWidth: '100%',
-      borderRadius: '4px',
+      maxWidth: theme.breakpoints.values.sm,
+      borderRadius: '8px',
       margin: '10px auto 20px auto',
-      fontFamily: 'Open Sans',
-      fontStyle: 'italic',
+      // fontFamily: 'Open Sans',
+      // fontStyle: 'italic',
       color: '#555555',
-      padding: '1.2em 30px 1.2em 45px',
+      // padding: '1.2em 30px 1.2em 45px',
+      padding: theme.spacing(2, 1, 2, 6),
       borderLeft: '8px solid #78c0a8',
       borderLeftColor: theme.palette.primary.main,
       lineHeight: 1.6,
@@ -101,6 +102,9 @@ export const GlobalCss = withStyles((theme) => ({
         left: '10px',
         top: '-10px',
       },
+      '& p': {
+        margin: 0,
+      }
     },
   },
 }))(() => null)

@@ -14,6 +14,7 @@ import { Provider } from 'react-redux'
 import { store } from '~/store'
 import { Toaster } from '~/common/material/Toaster'
 import { App } from './App'
+import './prismjs.scss'
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>

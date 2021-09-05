@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useCallback } from 'react'
 import { TextField, Button, Grid } from '@material-ui/core';
 import { Modal } from '~/common/material/Modal'
 import Alert from '@material-ui/lab/Alert'
@@ -21,9 +21,11 @@ export const ErrorInModal = ({ isOpened, onClose }: TProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value)
   }
-  const handleClearText = () => {
+  const textRef = useRef(null)
+  const handleClearText = useCallback(() => {
     setText('')
-  }
+    if (!!textRef.current) textRef.current.focus()
+  }, [setText])
 
   return (
     <Modal
@@ -38,7 +40,7 @@ export const ErrorInModal = ({ isOpened, onClose }: TProps) => {
         <>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <TextField id="outlined-basic" size='medium' fullWidth label="Text" variant="outlined" value={text} onChange={handleChange} />
+              <TextField inputRef={textRef} id="outlined-basic" size='small' fullWidth label="Text" variant="outlined" value={text} onChange={handleChange} />
             </Grid>
             <Grid item xs={12}>
               <ErrorBoundary

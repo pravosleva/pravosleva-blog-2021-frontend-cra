@@ -8,18 +8,18 @@ import CloseIcon from '@material-ui/icons/Close'
 import Typography from '@material-ui/core/Typography'
 
 const styles = (theme: Theme) =>
-createStyles({
-  root: {
-    margin: 0,
-    padding: theme.spacing(2),
-  },
-  closeButton: {
-    position: 'absolute',
-    right: theme.spacing(1),
-    top: theme.spacing(1),
-    color: theme.palette.grey[500],
-  },
-});
+  createStyles({
+    root: {
+      margin: 0,
+      padding: theme.spacing(2),
+    },
+    closeButton: {
+      position: 'absolute',
+      right: theme.spacing(1),
+      top: theme.spacing(1),
+      color: theme.palette.grey[500],
+    },
+  });
 
 export interface DialogTitleProps extends WithStyles<typeof styles> {
 id: string;
@@ -42,16 +42,19 @@ return (
 });
 
 const DialogContent = withStyles((theme: Theme) => ({
-root: {
-  padding: theme.spacing(2),
-},
+  root: {
+    padding: theme.spacing(2),
+    '& h1': {
+      margin: theme.spacing(1, 0, 2, 0),
+    },
+  },
 }))(MuiDialogContent);
 
 const DialogActions = withStyles((theme: Theme) => ({
-root: {
-  margin: 0,
-  padding: theme.spacing(1),
-},
+  root: {
+    margin: 0,
+    padding: theme.spacing(1),
+  },
 }))(MuiDialogActions);
 
 type TProps = {

@@ -9,7 +9,7 @@ export const useStyles = makeStyles((theme) => ({
       gridTemplateColumns: '1fr',
     },
     [theme.breakpoints.up('md')]: {
-      gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
     },
     gridAutoFlow: 'dense',
   },

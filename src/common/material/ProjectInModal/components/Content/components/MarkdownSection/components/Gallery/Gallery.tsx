@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { TPhoto } from '~/common/material/ProjectInModal/components'
 import { useStyles } from './styles'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
@@ -7,7 +6,6 @@ import slugify from 'slugify'
 import { baseRenderers } from '~/common/material/MDRenderers'
 import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
-import Prism from 'prismjs'
 
 type TProps = {
   photos: TPhoto[]
@@ -17,13 +15,6 @@ type TProps = {
 
 export const Gallery = ({ photos, title, description }: TProps) => {
   const classes = useStyles()
-  useEffect(() => {
-    // You can call the Prism.js API here
-    // Use setTimeout to push onto callback queue so it runs after the DOM is updated
-    setTimeout(() => {
-      Prism.highlightAll()
-    }, 0)
-  }, [])
 
   return (
     <div>

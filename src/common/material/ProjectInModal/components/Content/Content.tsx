@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import Prism from 'prismjs'
 import { MarkdownSection } from './components'
 
 type TFormat = {
@@ -52,6 +54,14 @@ type TProps = {
 }
 
 export const Content = ({ sections }: TProps) => {
+  useEffect(() => {
+    // You can call the Prism.js API here
+    // Use setTimeout to push onto callback queue so it runs after the DOM is updated
+    setTimeout(() => {
+      Prism.highlightAll()
+    }, 0)
+  }, [])
+
   return (
     <div>{sections.map(({ __component, content, Gallery }) => {
       switch(__component) {

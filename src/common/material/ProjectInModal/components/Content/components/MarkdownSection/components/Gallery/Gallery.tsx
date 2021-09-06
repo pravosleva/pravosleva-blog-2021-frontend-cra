@@ -79,9 +79,12 @@ export const Gallery = ({ photos, title, description }: TProps) => {
                 >
                   {
                     photos.map(({ formats, url, caption }: TPhoto) => {
-                      const { thumbnail } = formats
+                      const {
+                        // thumbnail,
+                        small,
+                      } = formats
                       const src = url
-                      const thumbnailSrc = !!thumbnail ? thumbnail.url : url
+                      const thumbnailSrc = !!small ? small.url : url
                       return (
                         <div className='grid-item' key={`${src}_${slugify(caption || 'no-caption')}`}>
                           <a href={src}>

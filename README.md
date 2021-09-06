@@ -30,6 +30,7 @@ Add `"proxy": "http://localhost:1337",`
 
 ```bash
 REACT_APP_API_ENDPOINT=http://localhost:1337
+REACT_APP_SOCKET_ENDPOINT=http://localhost:1337
 ```
 
 ## Production
@@ -42,4 +43,5 @@ Remove `"proxy": "http://localhost:1337",`
 
 ```bash
 REACT_APP_API_ENDPOINT=http://pravosleva.ru/api
+REACT_APP_SOCKET_ENDPOINT=http://pravosleva.ru
 ```

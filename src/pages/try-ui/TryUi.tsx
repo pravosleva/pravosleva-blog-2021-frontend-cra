@@ -1,5 +1,5 @@
 import { ResponsiveBlock } from '~/common/material/ResponsiveBlock'
-import { FlippedSample } from './components'
+import { FlippedSample, SystemInfo } from './components'
 
 export const TryUi = () => {
   return (
@@ -8,6 +8,8 @@ export const TryUi = () => {
         <h1>Try UI</h1>
         <h2>react-spring</h2>
         <FlippedSample />
+        <h2>System info</h2>
+        <SystemInfo />
       </>
     </ResponsiveBlock>
   )

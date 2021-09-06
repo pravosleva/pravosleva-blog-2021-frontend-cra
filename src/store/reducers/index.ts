@@ -4,6 +4,7 @@ import { toaster } from './toaster'
 import { userInfo } from './userInfo'
 import { projectInModal } from './projectInModal'
 import { crmPages } from './crmPages'
+import { socket } from './socket'
 
 export const rootReducer = combineReducers({
   // myDevice,
@@ -11,4 +12,5 @@ export const rootReducer = combineReducers({
   userInfo,
   projectInModal,
   crmPages,
+  socket,
 })

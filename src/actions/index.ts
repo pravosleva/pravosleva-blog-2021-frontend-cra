@@ -1,4 +1,5 @@
 export * from './crmPages'
 export * from './projectInModal'
+export * from './socket'
 export * from './toaster'
 export * from './userInfo'

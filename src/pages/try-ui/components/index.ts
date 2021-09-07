@@ -1,2 +1,2 @@
 export * from './FlippedSample'
-export * from './SystemInfo'
+export * from './ServerInfo'

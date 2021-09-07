@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react'
+import React, { useRef, useCallback, useEffect } from 'react'
 import {
   useScrollPosition,
   IWindowDims,
@@ -7,6 +7,7 @@ import clsx from 'clsx'
 import { useStyles } from './styles'
 import { scrollTop } from '~/utils/scrollTo'
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import { useRouter } from '~/common/hooks'
 
 export const FixedScrollTopButton = () => {
   const [, isMoreThan2Screens]: [IWindowDims, boolean] = useScrollPosition();
@@ -15,6 +16,11 @@ export const FixedScrollTopButton = () => {
   const handleClick = useCallback(() => {
     scrollTop()
   }, [])
+  const router = useRouter()
+
+  useEffect(() => {
+    scrollTop(true)
+  }, [router.pathname])
 
   return (
     <>

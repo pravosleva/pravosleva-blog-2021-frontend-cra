@@ -7,6 +7,6 @@ const scrollToRef = (ref: any, headerPx: number = 0, additionalPx: number = 0, n
 export const scrollTo = (ref: any, noAnimation?: boolean) => {
   scrollToRef(ref, 37, 8, noAnimation)
 }
-export const scrollTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+export const scrollTop = (noSmooth?: boolean) => {
+  window.scrollTo({ top: 0, behavior: !noSmooth ? 'smooth' : 'auto' })
 }

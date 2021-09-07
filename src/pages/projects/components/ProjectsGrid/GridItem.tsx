@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 import { useCallback } from 'react'
 import { getNormalizedDate } from '~/utils/timeConverter'
 import { ThemedButton, EPartnerCode } from '~/common/material/ThemedButton'
+import { useSpring, animated } from 'react-spring'
 
 type TProps = {
   crmPage: TCRMPage
@@ -24,13 +25,24 @@ export const GridItem = ({ crmPage }: TProps) => {
     dispatch(loadProjectData(id))
   }, [dispatch])
 
+  const transform = useSpring({
+    from: {
+      opacity: 0,
+      transform: 'scale(0.95)',
+      backgroundImage: `url(${url})`,
+    },
+    to: {
+      opacity: 1,
+      transform: 'scale(1)',
+      backgroundImage: `url(${url})`,
+    },
+  })
+
   return (
-    <div
+    <animated.div
       className={classes.gridItemBg}
       key={id}
-      style={{
-        backgroundImage: `url(${url})`,
-      }}
+      style={transform}
     >
       <div className={classes.gridItemBox}>
         <div className={classes.gridItemTitle}><h3>{shortName}</h3></div>
@@ -44,6 +56,6 @@ export const GridItem = ({ crmPage }: TProps) => {
           <div>{getNormalizedDate(createdAt)}</div>
         </div>
       </div>
-    </div>
+    </animated.div>
   )
 }

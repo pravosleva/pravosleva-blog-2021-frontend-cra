@@ -15,6 +15,7 @@ import {
   setIsLoadedProjectData,
   showAsyncToast,
   setProjectData,
+  setProjectErr,
 } from '~/actions'
 
 const apiUrl = getApiUrl()
@@ -46,6 +47,7 @@ function* loadProjectDataWorker(action) {
   yield put(setIsLoadingProjectData(true))
   yield put(setIsLoadedProjectData(false))
   yield put(setProjectData(null))
+  yield put(setProjectErr(null))
 
   const data: IData = yield call(fetchUserInfoData, `${apiUrl}/pages/${payload}`)
 
@@ -69,6 +71,9 @@ function* loadProjectDataWorker(action) {
         delay: 20000,
         type: 'error',
       })
+    )
+    yield put(
+      setProjectErr(data.msg)
     )
   }
 

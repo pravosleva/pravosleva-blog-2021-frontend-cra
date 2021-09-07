@@ -3,6 +3,7 @@ export const SET_PROJECT_DATA = 'SET_PROJECT_DATA'
 export const SET_IS_LOADING_PROJECT_DATA = 'SET_IS_LOADING_PROJECT_DATA'
 export const SET_IS_LOADED_PROJECT_DATA = 'SET_IS_LOADED_PROJECT_DATA'
 export const SET_IS_MODAL_OPENED = 'SET_IS_MODAL_OPENED'
+export const SET_PROJECT_ERR = 'SET_PROJECT_ERR'
 
 export const loadProjectData = (id: string) => {
   return { type: LOAD_PROJECT_DATA, payload: id }
@@ -22,4 +23,8 @@ export const setProjectData = (data: any) => {
 
 export const setIsModalOpened = (value: boolean) => {
   return { type: SET_IS_MODAL_OPENED, payload: value }
+}
+
+export const setProjectErr = (value: string) => {
+  return { type: SET_PROJECT_ERR, payload: value }
 }

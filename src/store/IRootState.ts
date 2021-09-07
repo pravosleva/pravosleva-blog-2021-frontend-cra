@@ -2,6 +2,7 @@ import { Store } from 'redux'
 // import { IToast } from '../actions'
 import { TCRMPages } from '~/store/reducers/crmPages'
 import { TSocketState } from '~/store/reducers/socket'
+import { TProjectInModal } from '~/store/reducers/projectInModal'
 
 export interface IRootState extends Store {
   [x: string]: any
@@ -16,13 +17,7 @@ export interface IRootState extends Store {
   userInfo: {
     isLoading: boolean
   }
-  projectInModal: {
-    activeProgectId: string | null
-    isLoading: boolean
-    isLoaded: boolean
-    data: any | null
-    isModalOpened: boolean
-  }
+  projectInModal: TProjectInModal
   crmPages: TCRMPages
   socket: TSocketState
 }

@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { setIsModalOpened, loadProjectData } from '~/actions'
 import { IRootState } from '~/store'
-import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import { Modal } from '~/common/material/Modal'
 import { mdiLoading } from '@mdi/js';
@@ -9,6 +8,7 @@ import Icon from '@mdi/react'
 import { Content } from './components'
 import { useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
+import Alert from '@material-ui/lab/Alert'
 
 export const ProjectInModal = () => {
   const dispatch = useDispatch()
@@ -16,6 +16,7 @@ export const ProjectInModal = () => {
   const isProjectLoading = useSelector((state: IRootState) => state.projectInModal.isLoading)
   const isProjectLoaded = useSelector((state: IRootState) => state.projectInModal.isLoaded)
   const projectData = useSelector((state: IRootState) => state.projectInModal.data)
+  const errMsg = useSelector((state: IRootState) => state.projectInModal.errMsg)
   const closeModal = () => {
     dispatch(setIsModalOpened(false))
   }
@@ -42,9 +43,9 @@ export const ProjectInModal = () => {
       isOpened={isModalOpened}
       onClose={closeModal}
       titleRenderer={() => (
-        <span>{projectData?.shortName || 'Please wait...'}</span>
+        <span>{isProjectLoaded ? projectData?.shortName : (isProjectLoading ? 'Please wait...' : 'Sorry')}</span>
       )}
-      maxWidth='md'
+      maxWidth={!!errMsg || isProjectLoading ? 'sm' : 'md'}
       fullWidth
       contentRenderer={() => (
         <div>
@@ -56,7 +57,11 @@ export const ProjectInModal = () => {
             ) :
               isProjectLoaded ? (
                 <Content sections={projectData.contentSections} />
-              ) : <div style={{ minHeight: '200px' }}><Typography gutterBottom>Oops...</Typography></div>
+              ) : (
+                <Alert variant="outlined" severity="error" title="Oops...">
+                  {errMsg || 'Что-то пошло не так'}
+                </Alert>
+              )
           }
         </div>
       )}

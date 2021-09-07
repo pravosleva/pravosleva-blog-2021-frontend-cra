@@ -66,9 +66,7 @@ export const SpringSlider = ({
     // transRef.start()
     if (autoplay) {
       sliderTimerRef.current = MakeTimer(delay)()
-      sliderTimerRef.current.startTimer(() => {
-        activeIndexInc()
-      })
+      sliderTimerRef.current.startTimer(activeIndexInc)
       const cleanup = () => {
         if (!!sliderTimerRef.current) sliderTimerRef.current.stopTimer()
       }
@@ -80,9 +78,7 @@ export const SpringSlider = ({
     if (autoplay) sliderTimerRef.current.stopTimer()
   }, [autoplay])
   const handleBtnLeave = useCallback(() => {
-    if (autoplay) sliderTimerRef.current.startTimer(() => {
-      activeIndexInc()
-    })
+    if (autoplay) sliderTimerRef.current.startTimer(activeIndexInc)
   }, [activeIndexInc, autoplay])
 
   return (

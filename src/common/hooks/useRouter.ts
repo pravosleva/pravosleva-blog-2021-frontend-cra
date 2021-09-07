@@ -5,7 +5,14 @@ import {
   useHistory,
   useRouteMatch,
 } from 'react-router-dom'
-import queryString from 'query-string'
+
+function paramsToObject(entries) {
+  const result = {}
+  for(const [key, value] of entries) { // each 'entry' is a [key, value] tupple
+    result[key] = value;
+  }
+  return result;
+}
 
 // See also: https://usehooks.com/useRouter/
 // let count = 0
@@ -18,6 +25,8 @@ export function useRouter() {
   // Return our custom router object
   // Memoize so that a new object is only returned if something changes
   return useMemo(() => {
+    // Convert string to object
+    const queryParams = new URLSearchParams(location.search)
     return {
       // For convenience add push(), replace(), pathname at top level
       push: history.push,
@@ -28,7 +37,7 @@ export function useRouter() {
       // so that they can be used interchangeably.
       // Example: /:topic?sort=popular -> { topic: "react", sort: "popular" }
       query: {
-        ...queryString.parse(location.search), // Convert string to object
+        ...paramsToObject(queryParams.entries()),
         ...params,
       },
 

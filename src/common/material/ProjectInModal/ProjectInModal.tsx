@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { setIsModalOpened } from '~/actions'
+import { setIsModalOpened, loadProjectData } from '~/actions'
 import { IRootState } from '~/store'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
@@ -7,6 +7,8 @@ import { Modal } from '~/common/material/Modal'
 import { mdiLoading } from '@mdi/js';
 import Icon from '@mdi/react'
 import { Content } from './components'
+import { useEffect } from 'react'
+import { useHistory, useLocation } from 'react-router-dom'
 
 export const ProjectInModal = () => {
   const dispatch = useDispatch()
@@ -17,6 +19,23 @@ export const ProjectInModal = () => {
   const closeModal = () => {
     dispatch(setIsModalOpened(false))
   }
+  const location = useLocation()
+  const history = useHistory()
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search)
+
+    if(!!queryParams.has('open')) {
+      const openId = queryParams.get('open')
+
+      dispatch(setIsModalOpened(true))
+      dispatch(loadProjectData(openId))
+      queryParams.delete('open')
+      history.replace({
+        search: queryParams.toString(),
+      })
+    }
+  }, [dispatch, location.search, history])
 
   return (
     <Modal

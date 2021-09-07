@@ -30,6 +30,7 @@ const cardStyles = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  textAlign: 'center' as const,
 }
 const wrapperStyles = {
   height: '100%',

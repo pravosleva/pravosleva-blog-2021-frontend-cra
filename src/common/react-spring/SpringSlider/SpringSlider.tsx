@@ -4,42 +4,17 @@ import { useStyles } from './styles'
 import clsx from 'clsx'
 import { MakeTimer } from '~/utils/MakeTimer'
 
-const data = [
-  {
-    id: 0,
-    url: 'https://minuteluxe.com/wp-content/uploads/2021/05/tw-rise-of-tech.jpg',
-    text: 'One',
-  },
-  {
-    id: 1,
-    url: 'https://www.channelfutures.com/files/2020/08/Global-Future-and-Technology-1.jpg',
-    text: 'Two',
-  },
-  {
-    id: 2,
-    url: 'https://www.edb.gov.sg/content/dam/edb-en/insights/headquarters/southeast-asia-the-next-growth-frontier-for-tech-companies/masthead-d-1920x815.jpg',
-    text: 'Three',
-  },
-  {
-    id: 3,
-    url: 'https://csis-website-prod.s3.amazonaws.com/s3fs-public/styles/csis_banner/public/publication/190215_Asia.jpg?itok=G3PNCOZH',
-    text: 'Four',
-  },
-  {
-    id: 4,
-    url: 'https://knowledge.insead.edu/sites/www.insead.edu/files/images/2017/07/istock-493321081.jpg',
-    text: 'Five',
-  },
-]
-
-let count = 0
-
 type TProps = {
   autoplay?: boolean
   delay?: number
   duration?: number
   leftBtnInternalRenderer?: React.FC<any>
   rightBtnInternalRenderer?: React.FC<any>
+  data: {
+    id: number
+    [key: string]: any
+  }[]
+  itemRenderer: React.FC<{[key: string]: any}>
 }
 
 export const SpringSlider = ({
@@ -48,23 +23,30 @@ export const SpringSlider = ({
   duration = 700,
   leftBtnInternalRenderer,
   rightBtnInternalRenderer,
+  data,
+  itemRenderer,
 }: TProps) => {
+  const countRef = useRef(0)
   const [activeIndex, setActiveIndex] = useState<number>(0)
   const activeIndexInc = useCallback(() => {
     setActiveIndex((ai) => ai < data.length - 1 ? ai + 1 : 0)
-  }, [setActiveIndex])
+  }, [setActiveIndex, data.length])
   const activeIndexDec = useCallback(() => {
     setActiveIndex((ai) => ai > 0 ? ai - 1 : data.length - 1)
-  }, [setActiveIndex])
+  }, [setActiveIndex, data.length])
   const prevIndexRef = useRef(-1)
   // const transRef = useSpringRef()
+  const isFirstRender = useCallback(() => (countRef.current === 0 || countRef.current === 1), [])
 
   const transitions = useTransition(data[activeIndex], {
     // ref: transRef,
-    from: { opacity: 0, transform: activeIndex > prevIndexRef.current ? `translateX(100%)` : `translateX(-100%)` },
+    from: {
+      opacity: 0,
+      transform: isFirstRender() ? 'translateY(-100%)' : activeIndex > prevIndexRef.current ? `translateX(100%)` : `translateX(-100%)`,
+    },
     enter: () => async (next, _stop) => {
-      console.log(`ENTERED: ${count++}`)
-      
+      console.log(`ENTERED: ${countRef.current++}`)
+
       await next({ opacity: 1, transform: `translateX(0%)` })
     },
     leave: { opacity: 0, transform: activeIndex > prevIndexRef.current ? `translateX(-100%)` : `translateX(100%)` },
@@ -77,8 +59,7 @@ export const SpringSlider = ({
   })
   const classes = useStyles()
   const isLeftDisabled = useMemo(() => activeIndex === 0, [activeIndex])
-  const isRightDisabled = useMemo(() => activeIndex === data.length - 1, [activeIndex])
-
+  const isRightDisabled = useMemo(() => activeIndex === data.length - 1, [activeIndex, data.length])
   const sliderTimerRef = useRef(null)
 
   useEffect(() => {
@@ -89,7 +70,7 @@ export const SpringSlider = ({
         activeIndexInc()
       })
       const cleanup = () => {
-        sliderTimerRef.current.stopTimer()
+        if (!!sliderTimerRef.current) sliderTimerRef.current.stopTimer()
       }
 
       return cleanup
@@ -121,7 +102,7 @@ export const SpringSlider = ({
           className={classes.slide}
           key={item.id}
         >
-            {item.text}
+          {itemRenderer(item)}
         </animated.div>
       ))}
       {

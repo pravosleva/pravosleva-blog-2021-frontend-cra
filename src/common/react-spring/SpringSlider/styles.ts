@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 export const useStyles = makeStyles((theme) => ({
   slide: {
     color: '#fff',
+    userSelect: 'none',
 
     display: 'flex',
     justifyContent: 'center',
@@ -13,6 +14,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   btn: {
+    WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
     position: 'absolute',
     top: '50%',
     transform: 'translateY(-50%)',
@@ -38,9 +40,19 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   btnLeft: {
-    left: '20px',
+    [theme.breakpoints.down('sm')]: {
+      left: theme.spacing(0),
+    },
+    [theme.breakpoints.up('md')]: {
+      left: theme.spacing(4),
+    },
   },
   btnRight: {
-    right: '20px',
+    [theme.breakpoints.down('sm')]: {
+      right: theme.spacing(0),
+    },
+    [theme.breakpoints.up('md')]: {
+      right: theme.spacing(4),
+    },
   },
 }))

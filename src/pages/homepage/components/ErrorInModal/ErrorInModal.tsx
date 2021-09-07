@@ -5,7 +5,6 @@ import Alert from '@material-ui/lab/Alert'
 import { ErrorBoundary } from 'react-error-boundary'
 import { ErrorFallback } from '~/common/material/ErrorFallback'
 
-
 type TProps = {
   isOpened: boolean
   onClose: () => void

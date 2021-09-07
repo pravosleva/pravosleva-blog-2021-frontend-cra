@@ -24,7 +24,7 @@ export const ErrorFallback = ({ error, resetErrorBoundary }: TProps) => {
   const { message } = error
 
   return (
-    <Alert variant="outlined" severity="error">
+    <Alert variant="outlined" severity="error" title="Oops">
       <div className={classes.flexContainer}>
         <div>{message}</div>
         <Button size='small' autoFocus onClick={resetErrorBoundary} variant='outlined' color="primary">

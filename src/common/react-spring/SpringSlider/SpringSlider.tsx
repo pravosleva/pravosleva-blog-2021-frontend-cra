@@ -71,11 +71,12 @@ export const SpringSlider = ({ delay, autoplay, duration = 700 }: TProps) => {
   const isLeftDisabled = useMemo(() => activeIndex === 0, [activeIndex])
   const isRightDisabled = useMemo(() => activeIndex === data.length - 1, [activeIndex])
 
-  const sliderTimerRef = useRef(MakeTimer(delay)())
+  const sliderTimerRef = useRef(null)
 
   useEffect(() => {
     // transRef.start()
     if (autoplay) {
+      sliderTimerRef.current = MakeTimer(delay)()
       sliderTimerRef.current.startTimer(() => {
         activeIndexInc()
       })
@@ -85,7 +86,7 @@ export const SpringSlider = ({ delay, autoplay, duration = 700 }: TProps) => {
 
       return cleanup
     }
-  }, [activeIndexInc, autoplay])
+  }, [activeIndexInc, autoplay, delay])
   const handleBtnHover = useCallback(() => {
     if (autoplay) sliderTimerRef.current.stopTimer()
   }, [autoplay])

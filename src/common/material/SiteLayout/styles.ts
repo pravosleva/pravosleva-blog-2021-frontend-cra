@@ -13,7 +13,7 @@ export const useStyles = makeStyles((_theme) => ({
     margin: '0 auto',
     marginBottom: `${contentBottomMargin}px`,
     // overflowY: 'auto',
-    border: '1px solid transparent',
+    // border: '1px solid transparent',
   },
   breadcrumbs: {
     position: 'sticky',

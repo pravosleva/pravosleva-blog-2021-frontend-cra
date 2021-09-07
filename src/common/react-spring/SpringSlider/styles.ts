@@ -9,7 +9,7 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     fontSize: '5em',
     fontWeight: 'bold',
-    letterSpacing: '0.4em',
+    letterSpacing: '0.3em',
   },
 
   btn: {

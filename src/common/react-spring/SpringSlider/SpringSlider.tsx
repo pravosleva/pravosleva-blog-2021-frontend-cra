@@ -30,10 +30,10 @@ export const SpringSlider = ({
   const [activeIndex, setActiveIndex] = useState<number>(0)
   const activeIndexInc = useCallback(() => {
     setActiveIndex((ai) => ai < data.length - 1 ? ai + 1 : 0)
-  }, [setActiveIndex, data.length])
+  }, [data.length])
   const activeIndexDec = useCallback(() => {
     setActiveIndex((ai) => ai > 0 ? ai - 1 : data.length - 1)
-  }, [setActiveIndex, data.length])
+  }, [data.length])
   const prevIndexRef = useRef(-1)
   // const transRef = useSpringRef()
   const isFirstRender = useCallback(() => (countRef.current === 0 || countRef.current === 1), [])
@@ -75,11 +75,14 @@ export const SpringSlider = ({
     }
   }, [activeIndexInc, autoplay, delay])
   const handleBtnHover = useCallback(() => {
-    if (autoplay) sliderTimerRef.current.stopTimer()
-  }, [autoplay])
+    if (sliderTimerRef.current) sliderTimerRef.current.stopTimer()
+  }, [])
   const handleBtnLeave = useCallback(() => {
-    if (autoplay) sliderTimerRef.current.startTimer(activeIndexInc)
-  }, [activeIndexInc, autoplay])
+    if (sliderTimerRef.current) {
+      sliderTimerRef.current.stopTimer()
+      sliderTimerRef.current.startTimer(activeIndexInc)
+    }
+  }, [activeIndexInc])
 
   return (
     <div style={{ position: 'relative', height: '200px' }}>

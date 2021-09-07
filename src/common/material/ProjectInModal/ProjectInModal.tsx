@@ -28,7 +28,7 @@ export const ProjectInModal = () => {
       maxWidth='md'
       fullWidth
       contentRenderer={() => (
-        <>
+        <div>
           {
             isProjectLoading ? (
               <div style={{ display: 'flex', justifyContent: 'center', color: 'lightgray' }}>
@@ -39,7 +39,7 @@ export const ProjectInModal = () => {
                 <Content sections={projectData.contentSections} />
               ) : <div style={{ minHeight: '200px' }}><Typography gutterBottom>Oops...</Typography></div>
           }
-        </>
+        </div>
       )}
       actionsRenderer={() => (
         <Button autoFocus onClick={closeModal} color="primary">

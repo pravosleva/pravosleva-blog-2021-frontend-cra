@@ -18,7 +18,7 @@ export const ServerInfo = () => {
       <Grid item xs={12} md={3}>
         <h3><code>si.mem()</code></h3>
         {!!siMem ? (
-          <pre style={{ whiteSpace: 'pre-wrap' }}>{JSON.stringify(siMem, null, 2)}</pre>
+          <pre style={{ whiteSpace: 'pre-wrap', margin: 0 }}>{JSON.stringify(siMem, null, 2)}</pre>
         ) : (
           <div>Please wait...</div>
         )}
@@ -27,7 +27,7 @@ export const ServerInfo = () => {
       <Grid item xs={12} md={9}>
         <h3><code>df -H</code></h3>
         {!!code ? (
-          <pre style={{ whiteSpace: 'pre-wrap' }}>{code}</pre>
+          <pre style={{ whiteSpace: 'pre-wrap', margin: 0 }}>{code}</pre>
           ) : (
             <div>Please wait...</div>
           )

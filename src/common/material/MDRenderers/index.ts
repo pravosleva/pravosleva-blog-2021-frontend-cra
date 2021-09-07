@@ -17,10 +17,10 @@ import { LinkRenderer } from './LinkRenderer'
 
 export const baseRenderers = {
   blockquote: BlockquoteRenderer,
+  html: HtmlRenderer,
   code: CodeRendererMaterialOceanic,
   // heading: HeadingRenderer,
-
-  html: HtmlRenderer,
+  
   // image: ImageRenderer,
   link: LinkRenderer,
 }

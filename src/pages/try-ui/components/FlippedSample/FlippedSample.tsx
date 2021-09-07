@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     gridItem: {
       width: '100%',
-      height: '150px'
+      height: '100px'
     },
   }),
 );

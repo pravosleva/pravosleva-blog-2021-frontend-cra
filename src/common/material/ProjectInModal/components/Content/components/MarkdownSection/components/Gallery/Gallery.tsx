@@ -16,6 +16,8 @@ type TProps = {
 export const Gallery = ({ photos, title, description }: TProps) => {
   const classes = useStyles()
 
+  // console.log(description)
+
   return (
     <div>
       {/* <pre>{JSON.stringify(photos, null, 2)}</pre> */}
@@ -23,8 +25,14 @@ export const Gallery = ({ photos, title, description }: TProps) => {
         <img key={id} alt='img' src={url} />
       )) */}
       <h2>{title}</h2>
-      {/* @ts-ignore */}
-      <ReactMarkdown plugins={[gfm, { singleTilde: false }]} renderers={baseRenderers} children={description} />
+      {!!description ? (
+        <ReactMarkdown
+          // @ts-ignore
+          plugins={[gfm, { singleTilde: false }]}
+          components={baseRenderers}
+          children={description}
+        />
+      ) : null}
       {
         !!photos && photos.length > 0 && (
           <div className={classes.galleryWrapper}>

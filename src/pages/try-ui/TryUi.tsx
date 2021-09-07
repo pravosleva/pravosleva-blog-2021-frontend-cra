@@ -7,7 +7,9 @@ export const TryUi = () => {
       <>
         <h1>Try UI</h1>
         <h2>react-spring</h2>
-        <FlippedSample />
+        <div style={{ marginBottom: '32px' }}>
+          <FlippedSample />
+        </div>
         <h2>Server info</h2>
         <ServerInfo />
       </>

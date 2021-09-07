@@ -82,6 +82,8 @@ export const useStyles = makeStyles((theme) => ({
       borderRadius: '8px',
       transition: 'all 0.15s linear',
       filter: 'grayscale(1)',
+      // filter: 'brightness(0.5)',
+      // filter: 'contrast(70%)',
       border: '2px solid lightgray',
     },
     '& > div > div.grid-item > a:not(.editable):hover': {

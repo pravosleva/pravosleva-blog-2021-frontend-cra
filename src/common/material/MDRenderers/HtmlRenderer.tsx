@@ -9,7 +9,12 @@ import JsxParser from 'react-jsx-parser'
 
 const componentTransforms = {
   // Alert: (props: any) => <Alert text={props.value} {...props} />,
-  React: (props: any) => <div style={{ border: '1px solid red' }}>{props.children}</div>,
+  React: (props: any) => {
+    // console.log(props)
+    return (
+      <div>{props.children}</div>
+    )
+  },
   // YoutubeGrid,
   // YoutubeInModal,
   YoutubePlayer,
@@ -17,5 +22,10 @@ const componentTransforms = {
   // ImageInNewTab: (props: any) => <ImageInNewTab {...props} />,
 }
 
-// @ts-ignore
-export const HtmlRenderer = (props: any) => <div style={{ border: '1px solid red' }}><JsxParser jsx={props.value} components={componentTransforms} /></div>
+export const HtmlRenderer = (props: any) => {
+  // console.log(props)
+  return (
+    // @ts-ignore
+    <JsxParser jsx={props.value} components={componentTransforms} />
+  )
+}

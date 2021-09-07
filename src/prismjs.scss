@@ -9,7 +9,7 @@ $xl: 1920;
 $gap: 16;
 
 div.code-toolbar,
-pre[class*='language-'] {
+pre[class*='language-'], pre {
   width: 100%;
   // max-width: calc(100vw - 76px);
   @media (min-width: #{$sm}px) and (max-width: #{$md}px) {
@@ -18,4 +18,14 @@ pre[class*='language-'] {
   border-radius: 8px;
 
   margin: 0 0 #{$gap}px 0;
+  
+  // NOTE: Derty hack
+  // 1. unnescessary padding in first line
+  & > *:first-child {
+    padding-left: 0;
+  }
+  // 2. Last break line (whitespace)
+  // & > *:last-child > *:last-child > *:last-child {
+  //   display: none;
+  // }
 }

@@ -2,6 +2,8 @@ import { ResponsiveBlock } from '~/common/material/ResponsiveBlock'
 import { FlippedSample, ServerInfo } from './components'
 import { SpringSlider } from '~/common/react-spring'
 import { useWindowSize } from '~/common/hooks'
+import Icon from '@mdi/react'
+import { mdiArrowRight, mdiArrowLeft } from '@mdi/js'
 
 export const TryUi = () => {
   const { isDesktop } = useWindowSize()
@@ -13,6 +15,8 @@ export const TryUi = () => {
           autoplay={isDesktop}
           delay={5000}
           duration={800}
+          leftBtnInternalRenderer={() => <Icon path={mdiArrowLeft} size={1} />}
+          rightBtnInternalRenderer={() => <Icon path={mdiArrowRight} size={1} />}
         />
       </ResponsiveBlock>
       <ResponsiveBlock isLimited={true}>

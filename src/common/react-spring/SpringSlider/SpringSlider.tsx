@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useMemo, useEffect } from 'react'
+import React, { useState, useRef, useCallback, useMemo, useEffect } from 'react'
 import { useTransition, animated } from 'react-spring'
 import { useStyles } from './styles'
 import clsx from 'clsx'
@@ -38,9 +38,17 @@ type TProps = {
   autoplay?: boolean
   delay?: number
   duration?: number
+  leftBtnInternalRenderer?: React.FC<any>
+  rightBtnInternalRenderer?: React.FC<any>
 }
 
-export const SpringSlider = ({ delay, autoplay, duration = 700 }: TProps) => {
+export const SpringSlider = ({
+  delay,
+  autoplay,
+  duration = 700,
+  leftBtnInternalRenderer,
+  rightBtnInternalRenderer,
+}: TProps) => {
   const [activeIndex, setActiveIndex] = useState<number>(0)
   const activeIndexInc = useCallback(() => {
     setActiveIndex((ai) => ai < data.length - 1 ? ai + 1 : 0)
@@ -116,26 +124,36 @@ export const SpringSlider = ({ delay, autoplay, duration = 700 }: TProps) => {
             {item.text}
         </animated.div>
       ))}
-      {!isLeftDisabled && (
-        <button
-          className={clsx(classes.btn, classes.btnLeft)}
-          onClick={activeIndexDec}
-          onMouseEnter={handleBtnHover}
-          onMouseLeave={handleBtnLeave}
-        >
-          Prev
-        </button>
-        )}
-      {!isRightDisabled && (
-        <button
-          className={clsx(classes.btn, classes.btnRight)}
-          onClick={activeIndexInc}
-          onMouseEnter={handleBtnHover}
-          onMouseLeave={handleBtnLeave}
-        >
-          Next
-        </button>
-      )}
+      {
+        !isLeftDisabled && (
+          <button
+            className={clsx(classes.btn, classes.btnLeft)}
+            onClick={activeIndexDec}
+            onMouseEnter={handleBtnHover}
+            onMouseLeave={handleBtnLeave}
+            disabled={isLeftDisabled}
+          >
+            {!!leftBtnInternalRenderer ? (
+              leftBtnInternalRenderer({ disabled: isLeftDisabled })
+            ) : 'Prev'}
+          </button>
+        )
+      }
+      {
+        !isRightDisabled && (
+          <button
+            className={clsx(classes.btn, classes.btnRight)}
+            onClick={activeIndexInc}
+            onMouseEnter={handleBtnHover}
+            onMouseLeave={handleBtnLeave}
+            disabled={isRightDisabled}
+          >
+            {!!rightBtnInternalRenderer ? (
+              rightBtnInternalRenderer({ disabled: isRightDisabled })
+            ) : 'Next'}
+          </button>
+        )
+      }
     </div>
   )
 }

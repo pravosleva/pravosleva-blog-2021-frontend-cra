@@ -21,12 +21,20 @@ export const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
     width: '50px',
     height: '50px',
-    border: '2px solid #fff',
+    [theme.breakpoints.down('sm')]: {
+      border: 'none',
+    },
+    [theme.breakpoints.up('md')]: {
+      border: '2px solid #fff',
+    },
     borderRadius: '50%',
     backgroundColor: 'transparent',
     color: '#fff',
     '&:hover': {
       transform: 'translateY(-50%) scale(1.1)',
+    },
+    '&:disabled': {
+      opacity: 0.5,
     },
   },
   btnLeft: {

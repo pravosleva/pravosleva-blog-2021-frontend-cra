@@ -110,7 +110,7 @@ export const PortfolioPage = () => {
                   className={classes.listItem}
                   onClick={goExternalLink('https://selection4test.ru/projects/auxiliary-calc')}
                 >
-                  <ListItemText primary="Liquid parameters (UI & lib)" secondary="Расчет параметров жидкости" />
+                  <ListItemText primary="Liquid parameters (UI)" secondary="Расчет параметров жидкости" />
                 </ListItem>
                 <ListItem
                   className={classes.listItem}
@@ -132,15 +132,15 @@ export const PortfolioPage = () => {
               <List className={classes.root} subheader={<li />}>
                 <ListItem
                   className={classes.listItem}
-                  onClick={goExternalLink('https://selection4test.ru/')}
+                  onClick={goExternalLink('https://selection4test.ru/projects/cargo-react')}
                 >
-                  <ListItemText primary="Cargo 2016 (Расчет загруженности фуры)" secondary="Для расстановки грузов с одинаковыми габаритами" />
+                  <ListItemText primary="Cargo 2016: Оценка загрузки фуры (v1)" secondary="Для расстановки грузов с разными габаритами" />
                 </ListItem>
                 <ListItem
                   className={classes.listItem}
-                  onClick={goExternalLink('https://selection4test.ru/projects/cargo-react')}
+                  onClick={goExternalLink('https://selection4test.ru/')}
                 >
-                  <ListItemText primary="Cargo 2016 (доработка)" secondary="Для расстановки грузов с разными габаритами" />
+                  <ListItemText primary="Cargo 2016: Оценка загрузки фуры (v0)" secondary="Для расстановки грузов с идентичными габаритами" />
                 </ListItem>
                 <ListItem
                   className={classes.listItem}

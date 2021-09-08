@@ -6,6 +6,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux'
 import { IRootState } from '~/store'
 import { ProjectsGrid } from './components'
+import { ToggleText } from '~/common/react-spring'
 
 export const ProjectsPage = () => {
   const dispatch = useDispatch()
@@ -20,7 +21,7 @@ export const ProjectsPage = () => {
   return (
     <ResponsiveBlock isLimited={true}>
       <>
-        <h1>All Projects</h1>
+        <h1 style={{ display: 'flex' }}><span>All</span><span>&nbsp;</span><ToggleText two={['Projects 🧨', 'Ideas 🔥']} /></h1>
         {
           isPagesLoaded
           ? pages.length > 0

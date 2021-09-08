@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     rel: {
       position: 'relative',
+      WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
     },
     abs: {
       position: 'absolute',

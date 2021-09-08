@@ -1,19 +1,19 @@
 import { ResponsiveBlock } from '~/common/material/ResponsiveBlock'
 import { FlippedSample, ServerInfo } from './components'
 import { SpringSlider } from '~/common/react-spring'
-import { useWindowSize } from '~/common/hooks'
+// import { useWindowSize } from '~/common/hooks'
 import Icon from '@mdi/react'
 import { mdiArrowRight, mdiArrowLeft } from '@mdi/js'
 // import { md } from '~/common/material/theme'
 
 export const TryUi = () => {
-  const { isDesktop } = useWindowSize()
+  // const { isDesktop } = useWindowSize()
 
   return (
     <>
       <ResponsiveBlock>
         <SpringSlider
-          autoplay={isDesktop}
+          autoplay={true}
           delay={5000}
           duration={800}
           leftBtnInternalRenderer={() => <Icon path={mdiArrowLeft} size={1} />}
@@ -51,10 +51,15 @@ export const TryUi = () => {
                 style={{
                   height: '100%',
                   width: '100%',
+                  maxWidth: '100vw',
                   // maxWidth: `${md - 32}px`,
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
+
+                  fontSize: '5em',
+                  fontWeight: 'bold',
+                  letterSpacing: '0.2em',
                 }}
               >
                 {text}

@@ -36,20 +36,20 @@ export const SpringSlider = ({
   }, [data.length])
   const prevIndexRef = useRef(-1)
   // const transRef = useSpringRef()
-  const isFirstRender = useCallback(() => (countRef.current === 0 || countRef.current === 1), [])
+  const isFirstRender = () => countRef.current === 0 // || countRef.current === 1
 
   const transitions = useTransition(data[activeIndex], {
     // ref: transRef,
     from: {
       opacity: 0,
-      transform: isFirstRender() ? 'translateY(-100%)' : activeIndex > prevIndexRef.current ? `translateX(100%)` : `translateX(-100%)`,
+      transform: isFirstRender() ? 'translateY(-100%)' : activeIndex > prevIndexRef.current ? 'translateX(100%)' : 'translateX(-100%)',
     },
     enter: () => async (next, _stop) => {
       console.log(`ENTERED: ${countRef.current++}`)
 
-      await next({ opacity: 1, transform: `translateX(0%)` })
+      await next({ opacity: 1, transform: 'translateX(0%)' })
     },
-    leave: { opacity: 0, transform: activeIndex > prevIndexRef.current ? `translateX(-100%)` : `translateX(100%)` },
+    leave: { opacity: 0, transform: activeIndex > prevIndexRef.current ? 'translateX(-100%)' : 'translateX(100%)' },
     config: {
       duration,
     },
@@ -60,29 +60,30 @@ export const SpringSlider = ({
   const classes = useStyles()
   const isLeftDisabled = useMemo(() => activeIndex === 0, [activeIndex])
   const isRightDisabled = useMemo(() => activeIndex === data.length - 1, [activeIndex, data.length])
-  const sliderTimerRef = useRef(null)
+  const sliderTimerRef = useRef(MakeTimer(delay)())
 
   useEffect(() => {
     // transRef.start()
     if (autoplay) {
-      sliderTimerRef.current = MakeTimer(delay)()
       sliderTimerRef.current.startTimer(activeIndexInc)
       const cleanup = () => {
-        if (!!sliderTimerRef.current) sliderTimerRef.current.stopTimer()
+        sliderTimerRef.current.stopTimer()
       }
 
       return cleanup
     }
-  }, [activeIndexInc, autoplay, delay])
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []) // activeIndexInc, autoplay, delay
   const handleBtnHover = useCallback(() => {
-    if (sliderTimerRef.current) sliderTimerRef.current.stopTimer()
-  }, [])
+    if (autoplay) sliderTimerRef.current.stopTimer()
+  }, [autoplay])
   const handleBtnLeave = useCallback(() => {
-    if (sliderTimerRef.current) {
+    if (autoplay) {
       sliderTimerRef.current.stopTimer()
       sliderTimerRef.current.startTimer(activeIndexInc)
     }
-  }, [activeIndexInc])
+  }, [activeIndexInc, autoplay])
 
   return (
     <div style={{ position: 'relative', height: '200px' }}>

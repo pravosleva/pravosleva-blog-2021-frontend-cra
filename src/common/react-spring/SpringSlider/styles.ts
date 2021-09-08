@@ -8,9 +8,6 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    fontSize: '5em',
-    fontWeight: 'bold',
-    letterSpacing: '0.3em',
   },
 
   btn: {
@@ -38,6 +35,9 @@ export const useStyles = makeStyles((theme) => ({
     '&:disabled': {
       opacity: 0.5,
     },
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   btnLeft: {
     [theme.breakpoints.down('sm')]: {

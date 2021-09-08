@@ -26,11 +26,14 @@ export const useStyles = makeStyles((theme) => ({
         },
       },
       gridAutoFlow: 'dense',
+      WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
     },
     '& > div > div.grid-item': {
       borderRadius: '8px',
+      WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
     },
     '& > div > div.grid-item > a': {
+      WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
       // width: '100%',
       // maxWidth: 'calc(33% - 1px)',
       // display: 'block',
@@ -75,6 +78,7 @@ export const useStyles = makeStyles((theme) => ({
     },
 
     '& > div > div.grid-item > a > img': {
+      WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
       // border: '2px solid transparent',
       width: '100%',
       height: '100%',

@@ -48,6 +48,15 @@ const DialogContent = withStyles((theme: Theme) => ({
     '& h1': {
       margin: theme.spacing(1, 0, 2, 0),
     },
+    // --- NOTE: Special for fullWidth code content in mobile:
+    [theme.breakpoints.down('sm')]: {
+      '& div > div > div > pre > pre': {
+        borderRadius: 0,
+        transform: `translateX(-${theme.spacing(2)}px)`,
+        width: `calc(100% + ${theme.spacing(4)}px)`,
+      },
+    },
+    // ---
   },
 }))(MuiDialogContent);
 

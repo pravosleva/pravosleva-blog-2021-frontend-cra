@@ -78,12 +78,12 @@ export const SpringSlider = ({
   const handleBtnHover = useCallback(() => {
     if (autoplay) sliderTimerRef.current.stopTimer()
   }, [autoplay])
-  const handleBtnLeave = useCallback(() => {
+  const handleBtnLeave = useCallback((toRigth: boolean) => {
     if (autoplay) {
       sliderTimerRef.current.stopTimer()
-      sliderTimerRef.current.startTimer(activeIndexInc)
+      sliderTimerRef.current.startTimer(toRigth ? activeIndexInc : activeIndexDec)
     }
-  }, [activeIndexInc, autoplay])
+  }, [activeIndexInc, activeIndexDec, autoplay])
 
   return (
     <div style={{ position: 'relative', height: '200px' }}>
@@ -111,7 +111,7 @@ export const SpringSlider = ({
             className={clsx(classes.btn, classes.btnLeft)}
             onClick={activeIndexDec}
             onMouseEnter={handleBtnHover}
-            onMouseLeave={handleBtnLeave}
+            onMouseLeave={() => handleBtnLeave(false)}
             disabled={isLeftDisabled}
           >
             {!!leftBtnInternalRenderer ? (
@@ -126,7 +126,9 @@ export const SpringSlider = ({
             className={clsx(classes.btn, classes.btnRight)}
             onClick={activeIndexInc}
             onMouseEnter={handleBtnHover}
-            onMouseLeave={handleBtnLeave}
+            // onFocus={handleFocus}
+            // onBlur={handleBlur}
+            onMouseLeave={() => handleBtnLeave(true)}
             disabled={isRightDisabled}
           >
             {!!rightBtnInternalRenderer ? (

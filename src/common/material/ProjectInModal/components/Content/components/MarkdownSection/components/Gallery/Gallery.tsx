@@ -24,7 +24,7 @@ export const Gallery = ({ photos, title, description }: TProps) => {
     <div>
       <h2>{title}</h2>
       {!!description ? (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div style={{ marginBottom: '16px' }}>Loading...</div>}>
           <ReactMarkdown
             // @ts-ignore
             plugins={[gfm, { singleTilde: false }]}

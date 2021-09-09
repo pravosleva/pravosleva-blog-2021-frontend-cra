@@ -46,7 +46,7 @@ export const MarkdownSection = ({ content, Gallery }: TProps) => {
   return (
     <>
       <div ref={contentRef}>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div style={{ marginBottom: '16px' }}>Loading...</div>}>
           <ReactMarkdown
             // @ts-ignore
             plugins={[gfm, { singleTilde: false }]}

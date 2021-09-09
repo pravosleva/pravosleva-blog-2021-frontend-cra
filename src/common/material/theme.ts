@@ -12,10 +12,10 @@ import {
 export const defaultTheme = {
   palette: {
     primary: {
-      light: '#757ce8',
+      light: '#58B3F9',
       main: '#2196f3',
-      dark: '#2196f3',
-      contrastText: '#fff',
+      dark: '#4083B6',
+      contrastText: '#0B5E9E',
     },
     secondary: {
       light: '#ff7961',
@@ -60,15 +60,18 @@ export const GlobalCss = withStyles((theme) => ({
     },
     // See also: https://material-ui.com/ru/customization/components/
     code: {
-      background: 'rgba(250, 239, 240, 0.78)',
+      background: theme.palette.primary.light,
       // boxShadow: '0px 0px 3px rgba(0, 0, 0, 0.2)',
-      color: '#b44437',
-      padding: '3px 4px',
+      color: '#FFF',
+      padding: '3px 6px',
       borderRadius: '5px',
       margin: '0 1px',
       fontSize: '0.9em',
-      fontWeight: '500',
+      fontWeight: 'bold',
       letterSpacing: '0.3px',
+    },
+    'code[class*=\'language-\']': {
+      fontWeight: 'inherit',
     },
     body: {
       overflowX: 'hidden',
@@ -88,16 +91,18 @@ export const GlobalCss = withStyles((theme) => ({
       // fontStyle: 'italic',
       color: '#555555',
       // padding: '1.2em 30px 1.2em 45px',
-      padding: theme.spacing(2, 1, 2, 6),
-      borderLeft: '8px solid #78c0a8',
-      borderLeftColor: theme.palette.primary.main,
+      padding: theme.spacing(2, 1, 2, 5),
+      borderLeft: `${theme.spacing(1)}px solid #78c0a8`,
+      // borderLeftColor: theme.palette.primary.main,
+      borderLeftColor: 'lightgray',
       lineHeight: 1.6,
       position: 'relative',
       background: '#ededed',
       '&::before': {
         fontFamily: 'Arial',
         content: 'open-quote',
-        color: theme.palette.primary.main,
+        // color: theme.palette.primary.main,
+        color: 'lightgray',
         fontSize: '4em',
         position: 'absolute',
         left: '10px',

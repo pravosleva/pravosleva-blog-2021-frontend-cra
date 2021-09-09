@@ -1,19 +1,35 @@
+enum EState {
+  STOPPED = 'stopped',
+  STARTED = 'started',
+}
+
 export const MakeTimer = (ms: number = 3000) => {
-  let socketTimer: NodeJS.Timeout
+  let timer: NodeJS.Timeout
+  let state: EState = EState.STOPPED
+  const log = (msg: string) => {
+    console.log(msg, state)
+  }
 
   return () => {
-    const startTimer = (cb?: () => void) => {
-      console.log("Timer started!")
-      socketTimer = setTimeout(function () {
-        // console.log("Timer done and will be restarted.")
+    const start = (cb?: () => void) => {
+      timer = setTimeout(function () {
+        // log("Timer done and will be restarted.")
         if (cb) cb()
-        startTimer(cb)
+        start(cb)
       }, ms)
+      state = EState.STARTED
+      log("ON")
     };
-    const stopTimer = () => {
-      console.log("Timer stopped")
-      clearTimeout(socketTimer)
+    const stop = () => {
+      clearTimeout(timer)
+      state = EState.STOPPED
+      log("OFF")
     };
-    return { startTimer, stopTimer }
+    return {
+      start,
+      stop,
+      ms,
+      state,
+    }
   };
 }

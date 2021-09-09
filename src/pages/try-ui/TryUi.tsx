@@ -5,6 +5,8 @@ import { SpringSlider } from '~/common/react-spring'
 import Icon from '@mdi/react'
 import { mdiArrowRight, mdiArrowLeft } from '@mdi/js'
 // import { md } from '~/common/material/theme'
+// import Countdown from 'react-countdown'
+// import { StateCounterSample } from './components'
 
 export const TryUi = () => {
   // const { isDesktop } = useWindowSize()
@@ -14,8 +16,8 @@ export const TryUi = () => {
       <ResponsiveBlock>
         <SpringSlider
           autoplay={true}
-          delay={5000}
-          duration={800}
+          delay={7000}
+          duration={500}
           leftBtnInternalRenderer={() => <Icon path={mdiArrowLeft} size={1} />}
           rightBtnInternalRenderer={() => <Icon path={mdiArrowRight} size={1} />}
           data={[
@@ -45,7 +47,14 @@ export const TryUi = () => {
               text: 'Five',
             },
           ]}
-          itemRenderer={({ text }) => {
+          itemRenderer={({
+            text,
+            // timer,
+          }) => {
+            // const now = Date.now()
+            // const dateEnd = now + timer.ms
+            // const dateStart = new Date(now + timer.ms)
+          
             return (
               <div
                 style={{
@@ -54,15 +63,24 @@ export const TryUi = () => {
                   maxWidth: '100vw',
                   // maxWidth: `${md - 32}px`,
                   display: 'flex',
+                  flexDirection: 'column',
                   justifyContent: 'center',
                   alignItems: 'center',
-
-                  fontSize: '5em',
-                  fontWeight: 'bold',
-                  letterSpacing: '0.2em',
                 }}
               >
-                {text}
+                <h1
+                  style={{
+                    fontSize: '5em',
+                    fontWeight: 'bold',
+                    letterSpacing: '0.2em',
+                  }}
+                >{text}</h1>
+                {/* <StateCounterSample
+                  dateStart={dateStart}
+                  doneMsg='Done'
+                  waitMsg={`Wait for ${(timer.ms / 1000).toFixed(0)}s`}
+                /> */}
+                {/* <Countdown date={dateEnd} /> */}
               </div>
             )
           }}

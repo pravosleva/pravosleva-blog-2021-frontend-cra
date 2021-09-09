@@ -65,9 +65,9 @@ export const SpringSlider = ({
   useEffect(() => {
     // transRef.start()
     if (autoplay) {
-      sliderTimerRef.current.startTimer(activeIndexInc)
+      sliderTimerRef.current.start(activeIndexInc)
       const cleanup = () => {
-        sliderTimerRef.current.stopTimer()
+        sliderTimerRef.current.stop()
       }
 
       return cleanup
@@ -76,12 +76,12 @@ export const SpringSlider = ({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []) // activeIndexInc, autoplay, delay
   const handleBtnHover = useCallback(() => {
-    if (autoplay) sliderTimerRef.current.stopTimer()
+    if (autoplay) sliderTimerRef.current.stop()
   }, [autoplay])
   const handleBtnLeave = useCallback((toRigth: boolean) => {
     if (autoplay) {
-      sliderTimerRef.current.stopTimer()
-      sliderTimerRef.current.startTimer(toRigth ? activeIndexInc : activeIndexDec)
+      sliderTimerRef.current.stop()
+      sliderTimerRef.current.start(toRigth ? activeIndexInc : activeIndexDec)
     }
   }, [activeIndexInc, activeIndexDec, autoplay])
 
@@ -102,7 +102,7 @@ export const SpringSlider = ({
           className={classes.slide}
           key={item.id}
         >
-          {itemRenderer(item)}
+          {itemRenderer({ ...item, timer: sliderTimerRef.current })}
         </animated.div>
       ))}
       {

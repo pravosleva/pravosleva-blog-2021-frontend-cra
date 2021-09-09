@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import '~/index.css';
 import reportWebVitals from './reportWebVitals';
@@ -14,7 +13,8 @@ import { Provider } from 'react-redux'
 import { store } from '~/store'
 import { Toaster } from '~/common/material/Toaster'
 import { App } from './App'
-import './prismjs.scss'
+import './fix.prismjs.scss'
+import './fix.simple-react-lightbox.scss'
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>

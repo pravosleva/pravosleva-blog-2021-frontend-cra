@@ -1,10 +1,14 @@
-import { useRef } from 'react'
+import { lazy, useRef, Suspense } from 'react'
 import { baseRenderers } from '~/common/material/MDRenderers'
-import ReactMarkdown from 'react-markdown'
+// import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
 import { TGallery } from '~/common/material/ProjectInModal/components'
 import { Gallery as G } from './components'
 import { useEffect } from 'react'
+
+const ReactMarkdown = lazy(() =>
+  import(/* webpackChunkName: "ReactMarkdown" */ 'react-markdown')
+)
 
 type TProps = {
   content: string
@@ -42,12 +46,14 @@ export const MarkdownSection = ({ content, Gallery }: TProps) => {
   return (
     <>
       <div ref={contentRef}>
-        <ReactMarkdown
-          // @ts-ignore
-          plugins={[gfm, { singleTilde: false }]}
-          components={baseRenderers}
-          children={content}
-        />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ReactMarkdown
+            // @ts-ignore
+            plugins={[gfm, { singleTilde: false }]}
+            components={baseRenderers}
+            children={content}
+          />
+        </Suspense>
         {/* <pre>{JSON.stringify(Gallery, null, 2)}</pre> */}
         {!!Gallery && Gallery.map(({ id, photos, title, description }) => <G key={id} photos={photos} title={title} description={description} />)}
       </div>

@@ -2,6 +2,7 @@ import red from '@material-ui/core/colors/red'
 import {
   createTheme,
   withStyles,
+  Theme,
 } from '@material-ui/core/styles'
 // import { Breakpoint } from '@material-ui/core/styles/createBreakpoints'
 // See also: https://material-ui.com/guides/typescript/#customization-of-theme
@@ -109,4 +110,4 @@ export const GlobalCss = withStyles((theme) => ({
   },
 }))(() => null)
 
-export const theme = createTheme(defaultTheme)
+export const theme: Theme = createTheme(defaultTheme)

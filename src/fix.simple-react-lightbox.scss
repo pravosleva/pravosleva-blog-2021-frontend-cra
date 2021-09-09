@@ -1,0 +1,14 @@
+.SRLElementWrapper {
+  > svg.SRLLoadingIndicator {
+    left: calc(50% - 25px);
+  }
+}
+// .SRLThumbnailsContainer {
+//   border: 1px solid red;
+//   > a {
+//     margin: 0;
+//   }
+//   > a:not(:last-child) {
+//     margin-right: 8px;
+//   }
+// }

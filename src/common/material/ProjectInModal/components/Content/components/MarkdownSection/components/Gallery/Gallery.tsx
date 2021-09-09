@@ -1,11 +1,15 @@
+import { lazy, Suspense } from 'react'
 import { TPhoto } from '~/common/material/ProjectInModal/components'
 import { useStyles } from './styles'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
-// import clsx from 'clsx'
 import slugify from 'slugify'
 import { baseRenderers } from '~/common/material/MDRenderers'
-import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
+import { theme } from '~/common/material/theme'
+
+const ReactMarkdown = lazy(() =>
+  import(/* webpackChunkName: "ReactMarkdown" */ 'react-markdown')
+)
 
 type TProps = {
   photos: TPhoto[]
@@ -16,22 +20,18 @@ type TProps = {
 export const Gallery = ({ photos, title, description }: TProps) => {
   const classes = useStyles()
 
-  // console.log(description)
-
   return (
     <div>
-      {/* <pre>{JSON.stringify(photos, null, 2)}</pre> */}
-      {/* photos.map(({ id, url }: TPhoto) => (
-        <img key={id} alt='img' src={url} />
-      )) */}
       <h2>{title}</h2>
       {!!description ? (
-        <ReactMarkdown
-          // @ts-ignore
-          plugins={[gfm, { singleTilde: false }]}
-          components={baseRenderers}
-          children={description}
-        />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ReactMarkdown
+            // @ts-ignore
+            plugins={[gfm, { singleTilde: false }]}
+            components={baseRenderers}
+            children={description}
+          />
+        </Suspense>
       ) : null}
       {
         !!photos && photos.length > 0 && (
@@ -42,6 +42,10 @@ export const Gallery = ({ photos, title, description }: TProps) => {
                   options={{
                     settings: {
                       // overlayColor: "rgb(25, 136, 124)",
+                      lightboxTransitionSpeed: 0.03,
+                      // disableKeyboardControls: false,
+                      slideTransitionSpeed: 0.03,
+                      // slideAnimationType: '',
                     },
                     caption: {
                       captionAlignment: 'start',
@@ -56,13 +60,11 @@ export const Gallery = ({ photos, title, description }: TProps) => {
                     },
                     buttons: {
                       showDownloadButton: false,
-                      showAutoplayButton: false,
-                      // backgroundColor: 'rgba(30,30,36,0.8)',
-                      // backgroundColor: 'rgb(25, 136, 124)',
-                      // backgroundColor: '#22577a',
-                      backgroundColor: '#f44336',
+                      showAutoplayButton: true,
+                      backgroundColor: theme.palette.primary.main,
                       iconColor: 'rgba(255, 255, 255, 1)',
                       iconPadding: '10px',
+                      size: '35px',
                     },
                     thumbnails: {
                       showThumbnails: true,
@@ -71,15 +73,15 @@ export const Gallery = ({ photos, title, description }: TProps) => {
                       thumbnailsContainerPadding: '0',
                       thumbnailsGap: '0 1px',
                       thumbnailsIconColor: '#ffffff',
-                      thumbnailsOpacity: 0.4,
+                      thumbnailsOpacity: 0.5,
                       thumbnailsPosition: 'bottom',
                       thumbnailsSize: ['100px', '80px']
                     },
                     progressBar:{
-                      backgroundColor: '#f2f2f2',
-                      fillColor: '#000000',
-                      height: '3px',
-                      showProgressBar: true
+                      backgroundColor: '#FFF',
+                      fillColor: theme.palette.primary.main,
+                      height: '2px',
+                      showProgressBar: true,
                     },
                     // translations: {}, // PRO ONLY
                     // icons: {} // PRO ONLY

@@ -15,10 +15,13 @@ type TProps = {
   crmPage: TCRMPage
 }
 
+const defaultBgUrl = '/default-bg.jpg'
+
 export const GridItem = ({ crmPage }: TProps) => {
   const { id, shortName, metadata, createdAt } = crmPage
   const classes = useStyles()
-  const { shareImage: { url }, metaDescription } = metadata
+  const { shareImage, metaDescription } = metadata
+  const url = shareImage?.url || defaultBgUrl
   const dispatch = useDispatch()
   const getProject = useCallback((id: string) => {
     dispatch(setIsModalOpened(true))

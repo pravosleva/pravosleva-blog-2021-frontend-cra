@@ -46,7 +46,7 @@ const styles = {
       [EPartnerCode.SvyaznoySecondaryBig]: 500,
       [EPartnerCode.SvyaznoyYellow]: 500,
       [EPartnerCode.SvyaznoyYellowBig]: 500,
-      [EPartnerCode.Yellow]: 500,
+      [EPartnerCode.Yellow]: 'bold',
     }),
     lineHeight: styledBy('partnerCode', {
       default: '40px',
@@ -147,7 +147,7 @@ const styles = {
         [EPartnerCode.SvyaznoySecondaryBig]: '#4C1E87',
         [EPartnerCode.SvyaznoyYellow]: '#4C1E87',
         [EPartnerCode.SvyaznoyYellowBig]: '#4C1E87',
-        [EPartnerCode.Yellow]: 'transparent',
+        [EPartnerCode.Yellow]: 'rgba(0, 0, 0, 0.5)',
       }),
       border: styledBy('partnerCode', {
         default: 'none',

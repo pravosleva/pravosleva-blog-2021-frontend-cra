@@ -6,6 +6,7 @@ import slugify from 'slugify'
 import { baseRenderers } from '~/common/material/MDRenderers'
 import gfm from 'remark-gfm'
 import { theme } from '~/common/material/theme'
+// import ReactMarkdown from 'react-markdown'
 
 const ReactMarkdown = lazy(() =>
   import(/* webpackChunkName: "ReactMarkdown" */ 'react-markdown')
@@ -45,7 +46,7 @@ export const Gallery = ({ photos, title, description }: TProps) => {
                       lightboxTransitionSpeed: 0.03,
                       // disableKeyboardControls: false,
                       slideTransitionSpeed: 0.03,
-                      // slideAnimationType: '',
+                      // slideAnimationType: '', // string | undefined
                     },
                     caption: {
                       captionAlignment: 'start',
@@ -64,7 +65,7 @@ export const Gallery = ({ photos, title, description }: TProps) => {
                       backgroundColor: theme.palette.primary.main,
                       iconColor: 'rgba(255, 255, 255, 1)',
                       iconPadding: '10px',
-                      size: '35px',
+                      size: '40px',
                     },
                     thumbnails: {
                       showThumbnails: true,

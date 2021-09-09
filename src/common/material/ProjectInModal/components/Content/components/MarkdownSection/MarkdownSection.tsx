@@ -1,10 +1,15 @@
-import { lazy, useRef, Suspense } from 'react'
+import {
+  lazy,
+  Suspense,
+  useRef,
+} from 'react'
 import { baseRenderers } from '~/common/material/MDRenderers'
 // import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
 import { TGallery } from '~/common/material/ProjectInModal/components'
 import { Gallery as G } from './components'
 import { useEffect } from 'react'
+// import ReactMarkdown from 'react-markdown'
 
 const ReactMarkdown = lazy(() =>
   import(/* webpackChunkName: "ReactMarkdown" */ 'react-markdown')
@@ -54,6 +59,7 @@ export const MarkdownSection = ({ content, Gallery }: TProps) => {
             children={content}
           />
         </Suspense>
+        
         {/* <pre>{JSON.stringify(Gallery, null, 2)}</pre> */}
         {!!Gallery && Gallery.map(({ id, photos, title, description }) => <G key={id} photos={photos} title={title} description={description} />)}
       </div>

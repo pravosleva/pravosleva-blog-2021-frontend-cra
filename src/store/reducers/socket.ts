@@ -1,15 +1,15 @@
 import { SET_SOCKET, SET_SI_MEM, SET_SYSTEM_SPACE } from '~/actions'
 import { Systeminformation } from 'systeminformation'
+import { Socket } from 'socket.io-client'
 
-export type TSocket = {
-  on(event: string, callback: (data: any) => void): any
-  emit(event: string, data: any): any
-  off(event: string, callback: (data: any) => void): any
-}
+// type TSocket = {
+//   on(event: string, callback: (data: any) => void): any
+//   emit(event: string, data: any): any
+//   off(event: string, callback: (data: any) => void): any
+// }
 
 export type TSocketState = {
-  target: TSocket | null,
-  isConnected: boolean,
+  target: Socket | null,
   siMem: Systeminformation.MemData | null,
   systemSpace: {
     code: string | any
@@ -20,7 +20,6 @@ export type TSocketState = {
 
 const inititalState: TSocketState = {
   target: null,
-  isConnected: false,
   siMem: null,
   systemSpace: null,
 }
@@ -31,7 +30,6 @@ export const socket = (state = inititalState, action: any) => {
       return {
         ...state,
         target: action.payload,
-        isConnected: !!action.payload,
       }
     case SET_SI_MEM:
       return {

@@ -7,9 +7,12 @@ import { mdiArrowRight, mdiArrowLeft } from '@mdi/js'
 // import { md } from '~/common/material/theme'
 // import Countdown from 'react-countdown'
 // import { StateCounterSample } from './components'
+import { useSelector } from 'react-redux'
+import { IRootState } from '~/store'
 
 export const TryUi = () => {
   // const { isDesktop } = useWindowSize()
+  const isConnected = useSelector((state: IRootState) => state.socket.target?.connected)
 
   return (
     <>
@@ -17,7 +20,7 @@ export const TryUi = () => {
         <SpringSlider
           autoplay={true}
           delay={7000}
-          duration={500}
+          duration={700}
           leftBtnInternalRenderer={() => <Icon path={mdiArrowLeft} size={1} />}
           rightBtnInternalRenderer={() => <Icon path={mdiArrowRight} size={1} />}
           data={[
@@ -99,6 +102,7 @@ export const TryUi = () => {
       <ResponsiveBlock isLimited={true}>
         <>
           <h2>Server info</h2>
+          <div><em>Transfered by socket: {isConnected ? 'connected' : 'disconnected'}</em></div>
           <ServerInfo />
         </>
       </ResponsiveBlock>

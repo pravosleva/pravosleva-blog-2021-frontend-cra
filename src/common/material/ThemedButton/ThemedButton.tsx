@@ -68,7 +68,7 @@ const styles = {
       [EPartnerCode.SvyaznoySecondaryBig]: '200px',
       [EPartnerCode.SvyaznoyYellow]: '200px',
       [EPartnerCode.SvyaznoyYellowBig]: '200px',
-      [EPartnerCode.Yellow]: '150px',
+      [EPartnerCode.Yellow]: '120px',
     }),
     backgroundColor: styledBy('partnerCode', {
       default: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',

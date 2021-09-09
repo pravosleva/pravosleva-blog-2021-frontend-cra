@@ -10,11 +10,12 @@ import {
 } from '~/actions'
 import io from 'socket.io-client'
 import { Systeminformation } from 'systeminformation'
+import { Socket } from 'socket.io-client'
 
 const REACT_APP_SOCKET_ENDPOINT = process.env.REACT_APP_SOCKET_ENDPOINT
 
 export const useSocket = () => {
-  const socket = io(REACT_APP_SOCKET_ENDPOINT, {
+  const socket: Socket = io(REACT_APP_SOCKET_ENDPOINT, {
     autoConnect: true,
   })
   const dispatch = useDispatch()

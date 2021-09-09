@@ -1,4 +1,6 @@
-import { put, takeLatest,
+import {
+  put,
+  takeLatest,
   // select, call,
 } from 'redux-saga/effects'
 import {
@@ -17,11 +19,6 @@ function* socketConnectWorker({ payload }: any) {
   yield put(setSocket(payload))
 
   // const socket = yield select(getSocket)
-
-  // NOTE: UNSUBSCRIBE
-  // yield call(socket.on, ESocketEventlist.SI_MEM, onSiMem)
-  // yield call(socket.on, ESocketEventlist.YOURE_WELCOME, onYoureWelcome)
-  // Etc.
 }
 
 function* socketDisonnectWorker() {
@@ -32,13 +29,6 @@ function* socketDisonnectWorker() {
       delay: 5000,
     })
   )
-
-  // const socket = yield select(getSocket)
-
-  // NOTE: UNSUBSCRIBE
-  // yield call(socket.off, ESocketEventlist.SI_MEM, onSiMem)
-  // yield call(socket.off, ESocketEventlist.YOURE_WELCOME, onYoureWelcome)
-  // Etc.
 
   yield put(setSocket(null))
 }

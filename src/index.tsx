@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import '~/index.css';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import 'animate.css/animate.min.css'
 // import 'react-lightbox-component/build/css/index.css'
 import { SiteLayout } from '~/common/material/SiteLayout'
@@ -20,14 +20,14 @@ ReactDOM.render(
   <ThemeProvider theme={theme}>
     <CssBaseline />
     <GlobalCss />
-    <BrowserRouter>
+    <Router>
       <Provider store={store}>
         <Toaster />
         <SiteLayout>
           <App />
         </SiteLayout>
       </Provider>
-    </BrowserRouter>
+    </Router>
   </ThemeProvider>,
   document.getElementById('root')
 );

@@ -1,7 +1,7 @@
 import { useEffect, useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import {
-  showAsyncToast,
+  // showAsyncToast,
   ESocketEventlist,
   socketConnect,
   socketDisonnect,
@@ -20,15 +20,15 @@ export const useSocket = () => {
   })
   const dispatch = useDispatch()
 
-  const onYoureWelcome = useCallback((data) => {
-    dispatch(
-      showAsyncToast({
-        type: 'info',
-        text: `Socket: ${JSON.stringify(data)}`,
-        delay: 5000,
-      })
-    )
-  }, [dispatch])
+  const onYoureWelcome = useCallback((_data: { data: 'test' }) => {
+    // dispatch(
+    //   showAsyncToast({
+    //     type: 'info',
+    //     text: `Socket: ${JSON.stringify(data)}`,
+    //     delay: 5000,
+    //   })
+    // )
+  }, [])
   const onDisconnect = useCallback(() => {
     dispatch(socketDisonnect())
   }, [dispatch])

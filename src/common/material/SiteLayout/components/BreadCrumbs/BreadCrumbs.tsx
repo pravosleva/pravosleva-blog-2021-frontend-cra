@@ -29,19 +29,25 @@ export const BreadCrumbs = () => {
         )}
         {pathname === '/projects' && (
           <div className={classes.rightSide}>
-            <Link to="/">Главная</Link><span>/</span>
+            <Link to="/">Главная</Link><span className={classes.muted}>/</span>
             <span className={classes.muted}>Проекты</span>
+          </div>
+        )}
+        {pathname === '/articles' && (
+          <div className={classes.rightSide}>
+            <Link to="/">Главная</Link><span className={classes.muted}>/</span>
+            <span className={classes.muted}>Статьи</span>
           </div>
         )}
         {pathname === '/portfolio' && (
           <div className={classes.rightSide}>
-            <Link to="/">Главная</Link><span>/</span>
-            <span className={classes.muted}>Что-то интересное</span>
+            <Link to="/">Главная</Link><span className={classes.muted}>/</span>
+            <span className={classes.muted}>Прочее</span>
           </div>
         )}
         {pathname === '/try-ui' && (
           <div className={classes.rightSide}>
-            <Link to="/">Главная</Link><span>/</span>
+            <Link to="/">Главная</Link><span className={classes.muted}>/</span>
             <span className={classes.muted}>Try UI</span>
           </div>
         )}

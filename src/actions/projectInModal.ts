@@ -1,30 +1,30 @@
-export const LOAD_PROJECT_DATA = 'LOAD_PROJECT_DATA'
-export const SET_PROJECT_DATA = 'SET_PROJECT_DATA'
-export const SET_IS_LOADING_PROJECT_DATA = 'SET_IS_LOADING_PROJECT_DATA'
-export const SET_IS_LOADED_PROJECT_DATA = 'SET_IS_LOADED_PROJECT_DATA'
+export const LOAD_PAGE_DATA = 'LOAD_PAGE_DATA'
+export const SET_PAGE_DATA = 'SET_PAGE_DATA'
+export const SET_IS_LOADING_PAGE_DATA = 'SET_IS_LOADING_PAGE_DATA'
+export const SET_IS_LOADED_PAGE_DATA = 'SET_IS_LOADED_PAGE_DATA'
 export const SET_IS_MODAL_OPENED = 'SET_IS_MODAL_OPENED'
-export const SET_PROJECT_ERR = 'SET_PROJECT_ERR'
+export const SET_PAGE_ERR = 'SET_PAGE_ERR'
 
-export const loadProjectData = (id: string) => {
-  return { type: LOAD_PROJECT_DATA, payload: id }
+export const loadPageData = (id: string) => {
+  return { type: LOAD_PAGE_DATA, payload: id }
 }
 
-export const setIsLoadingProjectData = (value: boolean) => {
-  return { type: SET_IS_LOADING_PROJECT_DATA, payload: value }
+export const setIsLoadingPageData = (value: boolean) => {
+  return { type: SET_IS_LOADING_PAGE_DATA, payload: value }
 }
 
-export const setIsLoadedProjectData = (value: boolean) => {
-  return { type: SET_IS_LOADED_PROJECT_DATA, payload: value }
+export const setIsLoadedPageData = (value: boolean) => {
+  return { type: SET_IS_LOADED_PAGE_DATA, payload: value }
 }
 
-export const setProjectData = (data: any) => {
-  return { type: SET_PROJECT_DATA, payload: data }
+export const setPageData = (data: any) => {
+  return { type: SET_PAGE_DATA, payload: data }
 }
 
 export const setIsModalOpened = (value: boolean) => {
   return { type: SET_IS_MODAL_OPENED, payload: value }
 }
 
-export const setProjectErr = (value: string) => {
-  return { type: SET_PROJECT_ERR, payload: value }
+export const setPageErr = (value: string) => {
+  return { type: SET_PAGE_ERR, payload: value }
 }

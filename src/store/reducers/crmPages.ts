@@ -4,6 +4,11 @@ import {
   SET_IS_LOADED_CRM_PAGES_DATA,
 } from '~/actions'
 
+export enum EPageType {
+  PROJECT = 'project',
+  ARTICLE = 'article',
+}
+
 export type TCRMPage = {
   id: string
   shortName: string
@@ -16,15 +21,17 @@ export type TCRMPage = {
   }
   createdAt: string // 2021-08-23T20:15:23.828Z
   updatedAt: string // 2021-09-04T23:54:54.195Z
+  type: EPageType
 }
-export type TCRMPages = {
-  pages: TCRMPage[],
+export type TCRMProjects = {
+  projects: TCRMPage[],
+  articles: TCRMPage[],
   isLoading: boolean
   isLoaded: boolean
 }
 
 const initialState = {
-  pages: [],
+  projects: [],
   isLoading: false,
   isLoaded: false,
 }
@@ -32,7 +39,8 @@ const initialState = {
 export const crmPages = (state = initialState, action: any) => {
   switch (action.type) {
     case SET_CRM_PAGES_DATA:
-      return { ...state, pages: action.payload }
+      const { projects, articles } = action.payload
+      return { ...state, projects, articles }
     case SET_IS_LOADING_CRM_PAGES_DATA:
       return { ...state, isLoading: action.payload }
     case SET_IS_LOADED_CRM_PAGES_DATA:

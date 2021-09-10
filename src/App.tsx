@@ -5,7 +5,7 @@ import {
   asyncLoadUserInfoData,
 } from '~/actions'
 // import { IRootState } from '~/store/IRootState'
-import { ProjectInModal } from '~/common/material/ProjectInModal'
+import { PageInModal } from '~/common/material/PageInModal'
 import { useSocket } from '~/common/hooks'
 
 export const App = () => {
@@ -24,7 +24,7 @@ export const App = () => {
   return (
     <>
       <Routes />
-      <ProjectInModal />
+      <PageInModal />
     </>
   )
 }

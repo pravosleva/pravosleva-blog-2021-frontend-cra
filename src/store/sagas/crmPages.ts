@@ -1,11 +1,12 @@
 import { put, takeLatest, call } from 'redux-saga/effects'
 import {
-  LOAD_CRM_PAGES_DATA,
+  LOAD_CRM_PROJECTS_DATA,
   setIsLoadingCrmPagesData,
   setIsLoadedCrmPagesData,
   setCrmPagesData,
   showAsyncToast,
 } from '~/actions'
+import { EPageType } from '~/store/reducers/crmPages'
 import { getApiUrl } from '~/utils/getApiUrl'
 import { httpErrorHandler } from '~/utils/errors/http/axios'
 // import { networkErrorHandler } from '~/utils/errors/network'
@@ -15,11 +16,12 @@ import axios from 'axios'
 import { ApiError } from '~/utils/errors/api'
 
 // NOTE: For example https://github.com/pravosleva/my-remont-2020-frontend.demo/blob/main/src/pages/projects/Projects.tsx
-const GET_CRM_PAGES = `
+const GET_CRM_PROJECTS = `
   {
-    pages(
+    projects: pages(
       sort: "createdAt:DESC"
-    )  {
+      where: { type: "${EPageType.PROJECT}" }
+    ) {
       id
       shortName
       metadata {
@@ -30,6 +32,23 @@ const GET_CRM_PAGES = `
       }
       updatedAt
       createdAt
+      type
+    }
+    articles: pages(
+      sort: "createdAt:DESC"
+      where: { type: "${EPageType.ARTICLE}" }
+    ) {
+      id
+      shortName
+      metadata {
+        shareImage {
+          url
+        }
+        metaDescription
+      }
+      updatedAt
+      createdAt
+      type
     }
   }
 `
@@ -43,15 +62,18 @@ const axiosRemoteGQL = axios.create(axiosOpts)
 async function fetchCrmPagesData(): Promise<any> {
   const result = await axiosRemoteGQL
   .post('', {
-    query: GET_CRM_PAGES,
+    query: GET_CRM_PROJECTS,
     validateStatus: (status: number) => status >= 200 && status < 500, // default
   })
     .then(httpErrorHandler) // res -> res.data
     .then((data) => {
-      if (Array.isArray(data?.data?.pages)) {
-        return data?.data?.pages
+      if (
+        Array.isArray(data?.data?.projects)
+        && Array.isArray(data?.data?.articles)
+      ) {
+        return data?.data
       }
-      throw new ApiError([{ api: ['Fuckup'] }])
+      throw new ApiError([{ 'Incorrect response': ['Fuckup'] }])
     }) // data -> data
     .then((data: any) => ({
       isOk: true,
@@ -73,8 +95,9 @@ function* asyncLoadCrmPagesWorker() {
 
   const data: IData = yield call(fetchCrmPagesData)
 
-  if (data.isOk && !!data.response) {
-    yield put(setCrmPagesData(data.response))
+  if (data.isOk) {
+    console.log('--- OK')
+    yield put(setCrmPagesData({ projects: data.response.projects, articles: data.response.articles }))
     yield put(setIsLoadedCrmPagesData(true))
     // yield put(
     //   showAsyncToast({ text: `${data.response.length} received`, delay: 5000, type: 'success' })
@@ -93,5 +116,5 @@ function* asyncLoadCrmPagesWorker() {
 }
 
 export function* watchCrmPages() {
-  yield takeLatest(LOAD_CRM_PAGES_DATA, asyncLoadCrmPagesWorker)
+  yield takeLatest(LOAD_CRM_PROJECTS_DATA, asyncLoadCrmPagesWorker)
 }

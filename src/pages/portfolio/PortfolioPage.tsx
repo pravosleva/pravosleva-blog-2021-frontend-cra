@@ -3,7 +3,7 @@ import { Grid, List, ListItem, ListItemText } from '@material-ui/core'
 import { useStyles } from './styles'
 import { ResponsiveBlock } from '~/common/material/ResponsiveBlock'
 import { useDispatch } from 'react-redux'
-import { loadProjectData, setIsModalOpened } from '~/actions'
+import { loadPageData, setIsModalOpened } from '~/actions'
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -19,14 +19,14 @@ export const PortfolioPage = () => {
   const dispatch = useDispatch()
   const tstGetProject = (id: string) => {
     dispatch(setIsModalOpened(true))
-    dispatch(loadProjectData(id))
+    dispatch(loadPageData(id))
   }
 
   return (
     <>
       <ResponsiveBlock isLimited={true}>
         <>
-          <h1>Что-то интересное</h1>
+          <h1>Others</h1>
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
               <h2>2021</h2>

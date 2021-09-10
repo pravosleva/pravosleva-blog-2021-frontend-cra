@@ -8,9 +8,9 @@ import { IRootState } from '~/store'
 import { PagesGrid } from '~/common/material/PagesGrid'
 import { ToggleText } from '~/common/react-spring'
 
-export const ProjectsPage = () => {
+export const ArticlesPage = () => {
   const dispatch = useDispatch()
-  const projects = useSelector((state: IRootState) => state.crmPages.projects)
+  const articles = useSelector((state: IRootState) => state.crmPages.articles)
   const isPagesLoading = useSelector((state: IRootState) => state.crmPages.isLoading)
   const isPagesLoaded = useSelector((state: IRootState) => state.crmPages.isLoaded)
 
@@ -21,11 +21,11 @@ export const ProjectsPage = () => {
   return (
     <ResponsiveBlock isLimited={true}>
       <>
-        <h1 style={{ display: 'flex' }}><span>All</span><span>&nbsp;</span><ToggleText two={['Projects 🧨', 'Experience 🧪']} /></h1>
+        <h1 style={{ display: 'flex' }}><span>All</span><span>&nbsp;</span><ToggleText two={['Articles 🏷', 'Ideas 🔥']} /></h1>
         {
           isPagesLoaded
-          ? projects.length > 0
-            ? <PagesGrid pages={projects} />
+          ? articles.length > 0
+            ? <PagesGrid pages={articles} />
             : 'No pages yet...'
           : isPagesLoading
               ? 'Loading...'

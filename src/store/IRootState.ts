@@ -1,6 +1,6 @@
 import { Store } from 'redux'
 // import { IToast } from '../actions'
-import { TCRMPages } from '~/store/reducers/crmPages'
+import { TCRMProjects } from '~/store/reducers/crmPages'
 import { TSocketState } from '~/store/reducers/socket'
 import { TProjectInModal } from '~/store/reducers/projectInModal'
 
@@ -18,6 +18,6 @@ export interface IRootState extends Store {
     isLoading: boolean
   }
   projectInModal: TProjectInModal
-  crmPages: TCRMPages
+  crmPages: TCRMProjects
   socket: TSocketState
 }

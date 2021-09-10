@@ -42,15 +42,20 @@ export const HomePage = () => {
                 className={classes.listItem}
                 onClick={goToPage('/projects')}
               >
-                <ListItemText primary="Проекты" secondary="CRM" />
+                <ListItemText primary="Проекты" secondary="From this CRM" />
+              </ListItem>
+              <ListItem
+                className={classes.listItem}
+                onClick={goToPage('/articles')}
+              >
+                <ListItemText primary="Статьи" secondary="From this CRM" />
               </ListItem>
               <ListItem
                 className={classes.listItem}
                 onClick={goToPage('/portfolio')}
               >
-                <ListItemText primary="Что-то интересное" secondary="Ссылки, статьи и прочее" />
+                <ListItemText primary="Прочее" secondary="Others" />
               </ListItem>
-              
             </List>
           </Grid>
           <Grid item xs={12} md={6}>

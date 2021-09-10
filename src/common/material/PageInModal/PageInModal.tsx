@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { setIsModalOpened, loadProjectData } from '~/actions'
+import { setIsModalOpened, loadPageData } from '~/actions'
 import { IRootState } from '~/store'
 import Button from '@material-ui/core/Button'
 import { Modal } from '~/common/material/Modal'
@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import Alert from '@material-ui/lab/Alert'
 
-export const ProjectInModal = () => {
+export const PageInModal = () => {
   const dispatch = useDispatch()
   const isModalOpened = useSelector((state: IRootState) => state.projectInModal.isModalOpened)
   const isProjectLoading = useSelector((state: IRootState) => state.projectInModal.isLoading)
@@ -30,7 +30,7 @@ export const ProjectInModal = () => {
       const openId = queryParams.get('open')
 
       dispatch(setIsModalOpened(true))
-      dispatch(loadProjectData(openId))
+      dispatch(loadPageData(openId))
       queryParams.delete('open')
       history.replace({
         search: queryParams.toString(),

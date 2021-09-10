@@ -6,16 +6,16 @@ import { httpErrorHandler } from '~/utils/errors/http/axios'
 import { apiErrorHandler } from '~/utils/errors/api'
 import { universalAxiosCatch } from '~/utils/errors'
 import {
-  LOAD_PROJECT_DATA,
-  // SET_PROJECT_DATA,
-  // SET_IS_LOADING_PROJECT_DATA,
-  // SET_IS_LOADED_PROJECT_DATA,
+  LOAD_PAGE_DATA,
+  // SET_PAGE_DATA,
+  // SET_IS_LOADING_PAGE_DATA,
+  // SET_IS_LOADED_PAGE_DATA,
   // setIsModalOpened,
-  setIsLoadingProjectData,
-  setIsLoadedProjectData,
+  setIsLoadingPageData,
+  setIsLoadedPageData,
   showAsyncToast,
-  setProjectData,
-  setProjectErr,
+  setPageData,
+  setPageErr,
 } from '~/actions'
 
 const apiUrl = getApiUrl()
@@ -44,18 +44,18 @@ interface IData {
 
 function* loadProjectDataWorker(action) {
   const { payload } = action
-  yield put(setIsLoadingProjectData(true))
-  yield put(setIsLoadedProjectData(false))
-  yield put(setProjectData(null))
-  yield put(setProjectErr(null))
+  yield put(setIsLoadingPageData(true))
+  yield put(setIsLoadedPageData(false))
+  yield put(setPageData(null))
+  yield put(setPageErr(null))
 
   const data: IData = yield call(fetchUserInfoData, `${apiUrl}/pages/${payload}`)
 
   if (data.isOk && !!data.response) {
-    yield put(setProjectData(data.response))
+    yield put(setPageData(data.response))
 
     // yield put(setIsModalOpened(true))
-    yield put(setIsLoadedProjectData(true))
+    yield put(setIsLoadedPageData(true))
     // yield put(
     //   showAsyncToast({
     //     text: `${typeof data.response} received`,
@@ -73,14 +73,14 @@ function* loadProjectDataWorker(action) {
       })
     )
     yield put(
-      setProjectErr(data.msg)
+      setPageErr(data.msg)
     )
   }
 
-  yield put(setIsLoadingProjectData(false))
+  yield put(setIsLoadingPageData(false))
 }
 
 export function* watchProjectInModalData() {
-  yield takeLatest(LOAD_PROJECT_DATA, loadProjectDataWorker)
+  yield takeLatest(LOAD_PAGE_DATA, loadProjectDataWorker)
   // yield takeLatest(LOGIN, loginWorker)
 }

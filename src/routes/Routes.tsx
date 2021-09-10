@@ -6,12 +6,14 @@ import { NotFoundPage } from '~/pages/404'
 import { PortfolioPage } from '~/pages/portfolio'
 // import { SlugPage } from '~/pages/articles/[slug]'
 import { ProjectsPage } from '~/pages/projects'
+import { ArticlesPage } from '~/pages/articles'
 import { TryUi } from '~/pages/try-ui'
 
 const routes: IRoute[] = [
   { path: '/', exact: true, component: HomePage },
   { path: '/portfolio', exact: true, component: PortfolioPage },
   { path: '/projects', exact: true, component: ProjectsPage },
+  { path: '/articles', exact: true, component: ArticlesPage },
   { path: '/try-ui', exact: true, component: TryUi },
   // { path: '/projects/:slug', exact: true, component: SlugPage },
   // { path: '/auth/login', exact: true, component: Login },

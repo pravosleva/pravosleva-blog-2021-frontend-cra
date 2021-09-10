@@ -6,7 +6,7 @@ import {
 import { baseRenderers } from '~/common/material/MDRenderers'
 // import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
-import { TGallery } from '~/common/material/ProjectInModal/components'
+import { TGallery } from '~/common/material/PageInModal/components'
 import { Gallery as G } from './components'
 import { useEffect } from 'react'
 // import ReactMarkdown from 'react-markdown'

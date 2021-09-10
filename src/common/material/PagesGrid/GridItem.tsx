@@ -3,7 +3,7 @@ import { useStyles } from './styles'
 // import { Button } from '@material-ui/core'
 import {
   setIsModalOpened,
-  loadProjectData,
+  loadPageData,
 } from '~/actions'
 import { useDispatch } from 'react-redux'
 import { useCallback } from 'react'
@@ -25,7 +25,7 @@ export const GridItem = ({ crmPage }: TProps) => {
   const dispatch = useDispatch()
   const getProject = useCallback((id: string) => {
     dispatch(setIsModalOpened(true))
-    dispatch(loadProjectData(id))
+    dispatch(loadPageData(id))
   }, [dispatch])
 
   const transform = useSpring({

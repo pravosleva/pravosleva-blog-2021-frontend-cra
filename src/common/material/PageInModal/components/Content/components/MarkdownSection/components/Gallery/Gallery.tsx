@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { TPhoto } from '~/common/material/ProjectInModal/components'
+import { TPhoto } from '~/common/material/PageInModal/components'
 import { useStyles } from './styles'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
 import slugify from 'slugify'

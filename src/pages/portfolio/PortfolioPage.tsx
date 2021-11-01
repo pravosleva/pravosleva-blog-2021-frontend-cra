@@ -34,6 +34,12 @@ export const PortfolioPage = () => {
               <List className={classes.root} subheader={<li />}>
                 <ListItem
                   className={classes.listItem}
+                  onClick={goExternalLink('http://pravosleva.ru/express-helper/chat/#?room=open-chat')}
+                >
+                  <ListItemText primary="Open Chat 2021" secondary="Socket chat" />
+                </ListItem>
+                <ListItem
+                  className={classes.listItem}
                   onClick={goExternalLink('https://t.me/pravosleva_bot')}
                 >
                   <ListItemText primary="Telegram Bot @pravosleva_bot" secondary="Подопытный бот" />

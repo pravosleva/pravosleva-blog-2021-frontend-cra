@@ -2,10 +2,10 @@ import { useCallback } from 'react'
 import { Grid, List, ListItem, ListItemText } from '@material-ui/core'
 import { useStyles } from './styles'
 import { ResponsiveBlock } from '~/common/material/ResponsiveBlock'
-import { useDispatch } from 'react-redux'
-import { loadPageData, setIsModalOpened } from '~/actions'
+// import { useDispatch } from 'react-redux'
+// import { loadPageData, setIsModalOpened } from '~/actions'
 
-const isDev = process.env.NODE_ENV === 'development'
+// const isDev = process.env.NODE_ENV === 'development'
 
 export const PortfolioPage = () => {
   const classes = useStyles()
@@ -16,11 +16,11 @@ export const PortfolioPage = () => {
     },
     []
   )
-  const dispatch = useDispatch()
-  const tstGetProject = (id: string) => {
-    dispatch(setIsModalOpened(true))
-    dispatch(loadPageData(id))
-  }
+  // const dispatch = useDispatch()
+  // const tstGetProject = (id: string) => {
+  //   dispatch(setIsModalOpened(true))
+  //   dispatch(loadPageData(id))
+  // }
 
   return (
     <>
@@ -50,14 +50,14 @@ export const PortfolioPage = () => {
                 >
                   <ListItemText primary="smartprice.ru" secondary="Продажа б/у смартфонов" />
                 </ListItem>
-                <ListItem
+                {/* <ListItem
                   className={classes.listItem}
                   onClick={() => {
                     tstGetProject(isDev ? '612401db5c6dcee7210b482a' : '612cf8f8d25d9441a8b12852')
                   }}
                 >
                   <ListItemText primary="QR Authorization" secondary="QR auth experience (password: qrdoc)" />
-                </ListItem>
+                </ListItem> */}
                 <ListItem
                   className={classes.listItem}
                   onClick={goExternalLink('http://code-samples.space')}

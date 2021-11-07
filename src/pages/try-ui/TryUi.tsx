@@ -9,6 +9,7 @@ import { mdiArrowRight, mdiArrowLeft } from '@mdi/js'
 // import { StateCounterSample } from './components'
 import { useSelector } from 'react-redux'
 import { IRootState } from '~/store'
+import { Carousel } from './components/Carousel'
 
 export const TryUi = () => {
   // const { isDesktop } = useWindowSize()
@@ -89,7 +90,8 @@ export const TryUi = () => {
           }}
         />
       </ResponsiveBlock>
-      <ResponsiveBlock isLimited={true}>
+
+      <ResponsiveBlock isLimited>
         <>
           <h1>Try UI</h1>
           <h2>react-spring</h2>
@@ -98,8 +100,15 @@ export const TryUi = () => {
           </div>
         </>
       </ResponsiveBlock>
+
+      <ResponsiveBlock isLimited>
+        <h2>Swipeable slider like smartprice.ru</h2>
+      </ResponsiveBlock>
+      <ResponsiveBlock style={{ backgroundColor: '#FEC34D' }}>
+        <Carousel />
+      </ResponsiveBlock>
       
-      <ResponsiveBlock isLimited={true}>
+      <ResponsiveBlock isLimited>
         <>
           <h2>Server info</h2>
           <div><em>Transfered by socket: {isConnected ? 'connected' : 'disconnected'}</em></div>

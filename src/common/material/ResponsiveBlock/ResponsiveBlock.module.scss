@@ -1,0 +1,7 @@
+@import '~/common/material/scss-vars/monitors.scss';
+
+@media(max-width: calc(#{$md}px + 1px)) {
+  .zero-pad-mob {
+    padding: 0px !important;
+  }
+}

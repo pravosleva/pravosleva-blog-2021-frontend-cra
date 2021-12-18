@@ -54,7 +54,7 @@ export const HomePage = () => {
                 className={classes.listItem}
                 onClick={goToPage('/portfolio')}
               >
-                <ListItemText primary="Прочее" secondary="Others" />
+                <ListItemText primary="🔥 Experience" secondary="Timeline, Others pet projects" />
               </ListItem>
             </List>
           </Grid>

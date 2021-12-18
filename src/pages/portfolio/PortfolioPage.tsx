@@ -1,7 +1,8 @@
-import { useCallback } from 'react'
-import { Grid, List, ListItem, ListItemText } from '@material-ui/core'
+import { useCallback, useState } from 'react'
+import { Button, Grid, List, ListItem, ListItemText } from '@material-ui/core'
 import { useStyles } from './styles'
 import { ResponsiveBlock } from '~/common/material/ResponsiveBlock'
+import { Modal } from '~/common/material/Modal'
 // import { useDispatch } from 'react-redux'
 // import { loadPageData, setIsModalOpened } from '~/actions'
 
@@ -22,8 +23,49 @@ export const PortfolioPage = () => {
   //   dispatch(loadPageData(id))
   // }
 
+  const [isPubProjectVariantsModalOpened, setIsPubProjectVariantsModalOpened] = useState<boolean>(false)
+  const handleClosePub2021 = useCallback(() => {
+    setIsPubProjectVariantsModalOpened(false)
+  }, [setIsPubProjectVariantsModalOpened])
+  const handleOpenPub2021 = useCallback(() => {
+    setIsPubProjectVariantsModalOpened(true)
+  }, [setIsPubProjectVariantsModalOpened])
+
   return (
     <>
+      <Modal
+        isOpened={isPubProjectVariantsModalOpened}
+        onClose={handleClosePub2021}
+        titleRenderer={() => (
+          <span>PUB Chat 2021</span>
+        )}
+        maxWidth='sm'
+        fullWidth
+        contentRenderer={() => (
+          <div>
+            Альфа тестирование. Все комнаты чата являются публичными.
+            <br />
+            Есть два варианта входа:
+            <ul>
+              <li><b>DEMO:</b> Зайти от гостя</li>
+              <li>Зайти через бота (будет доступно немного больше фич)</li>
+            </ul>
+          </div>
+        )}
+        actionsRenderer={() => (
+          <>
+            <Button onClick={goExternalLink('http://pravosleva.ru/express-helper/chat/#?room=ux-test')} variant="contained" color="primary">
+              Гость
+            </Button>
+            <Button onClick={goExternalLink('https://t.me/pravosleva_bot?start=invite-chat_uxTest')} variant="contained" color="primary">
+              Через бота
+            </Button>
+            <Button autoFocus onClick={handleClosePub2021} color="secondary">
+              Close
+            </Button>
+          </>
+        )}
+      />
       <ResponsiveBlock isLimited={true}>
         <>
           <h1>Others</h1>
@@ -34,9 +76,11 @@ export const PortfolioPage = () => {
               <List className={classes.root} subheader={<li />}>
                 <ListItem
                   className={classes.listItem}
-                  onClick={goExternalLink('http://pravosleva.ru/express-helper/chat/#?room=open-chat')}
+                  // onClick={goExternalLink('http://pravosleva.ru/express-helper/chat/#?room=open-chat')}
+                  // onClick={goExternalLink('https://t.me/pravosleva_bot?start=chat-invite_uxTest')}
+                  onClick={handleOpenPub2021}
                 >
-                  <ListItemText primary="Open Chat 2021" secondary="Socket chat" />
+                  <ListItemText primary="Pub Chat 2021" secondary="Scoket experience, TG bot" />
                 </ListItem>
                 <ListItem
                   className={classes.listItem}

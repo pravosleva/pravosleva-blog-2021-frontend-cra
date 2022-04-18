@@ -4,38 +4,43 @@ import {
   withStyles,
   Theme,
 } from '@material-ui/core/styles'
+import { AnyRecord } from 'dns'
 // import { Breakpoint } from '@material-ui/core/styles/createBreakpoints'
 // See also: https://material-ui.com/guides/typescript/#customization-of-theme
 
 // Like this: https://github.com/mui-org/material-ui/blob/master/examples/create-react-app-with-typescript/src/theme.tsx
 // See also: https://material-ui.com/ru/styles/basics/
-export const defaultTheme = {
+export const defaultTheme: any = {
   palette: {
     primary: {
-      light: '#58B3F9',
+      // light: '#58B3F9',
       main: '#2196f3',
-      dark: '#4083B6',
-      contrastText: '#0B5E9E',
+      // dark: '#245376',
+      // contrastText: '#004eb6',
     },
     secondary: {
-      light: '#ff7961',
-      main: '#f44336',
-      dark: '#ba000d',
-      contrastText: '#000',
+      main: '#a2acbd',
+      // light: '#ff7961',
+      // dark: '#3f4756',
+      // contrastText: '#000',
     },
     error: {
-      main: red.A400,
+      main: '#f85e54', // red.A400,
+      // light: '#ff7961',
+      // dark: '#3f4756',
+      // contrastText: '#000',
     },
     background: {
       default: '#fff',
+      // paper: 'red',
     },
-    svyaznoy: {
-      main: '#4c1e87',
-      yellow: '#ffc800',
-      light: '#757ce8',
-      dark: '#002884',
-      contrastText: '#fff',
-    },
+    // svyaznoy: {
+    //   main: '#4c1e87',
+    //   yellow: '#ffc800',
+    //   light: '#757ce8',
+    //   dark: '#002884',
+    //   contrastText: '#fff',
+    // },
   },
   breakpoints: {
     values: {
@@ -83,6 +88,8 @@ export const GlobalCss = withStyles((theme) => ({
       margin: theme.spacing(3, 0, 2, 0),
     },
     blockquote: {
+      // quotes: '"“" "”" "‘" "’"',
+      quotes: '"“" "”" "“" "”"',
       fontSize: '1em',
       maxWidth: theme.breakpoints.values.sm,
       borderRadius: '8px',

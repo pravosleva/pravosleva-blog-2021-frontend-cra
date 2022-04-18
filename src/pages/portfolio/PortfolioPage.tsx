@@ -68,7 +68,7 @@ export const PortfolioPage = () => {
       />
       <ResponsiveBlock isLimited={true}>
         <>
-          <h1>Others</h1>
+          <h1>Experience</h1>
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
               <h2>2021</h2>
@@ -80,7 +80,7 @@ export const PortfolioPage = () => {
                   // onClick={goExternalLink('https://t.me/pravosleva_bot?start=chat-invite_uxTest')}
                   onClick={handleOpenPub2021}
                 >
-                  <ListItemText primary="Pub Chat 2021" secondary="Scoket experience, TG bot" />
+                  <ListItemText primary="Pub Chat 2021" secondary="Sockets & TG bot experience" />
                 </ListItem>
                 <ListItem
                   className={classes.listItem}
@@ -160,7 +160,7 @@ export const PortfolioPage = () => {
                   className={classes.listItem}
                   onClick={goExternalLink('https://selection4test.ru/projects/auxiliary-calc')}
                 >
-                  <ListItemText primary="Liquid parameters (UI)" secondary="Расчет параметров жидкости" />
+                  <ListItemText primary="Liquid parameters UI" secondary="Расчет параметров жидкости" />
                 </ListItem>
                 <ListItem
                   className={classes.listItem}
@@ -184,13 +184,13 @@ export const PortfolioPage = () => {
                   className={classes.listItem}
                   onClick={goExternalLink('https://selection4test.ru/projects/cargo-react')}
                 >
-                  <ListItemText primary="Cargo 2016: Оценка загрузки фуры (v1)" secondary="Для расстановки грузов с разными габаритами" />
+                  <ListItemText primary="Cargo 2016: Оценка загрузки фуры v1" secondary="Для расстановки грузов с разными габаритами" />
                 </ListItem>
                 <ListItem
                   className={classes.listItem}
                   onClick={goExternalLink('https://selection4test.ru/')}
                 >
-                  <ListItemText primary="Cargo 2016: Оценка загрузки фуры (v0)" secondary="Для расстановки грузов с идентичными габаритами" />
+                  <ListItemText primary="Cargo 2016: Оценка загрузки фуры v0" secondary="Для расстановки грузов с идентичными габаритами" />
                 </ListItem>
                 <ListItem
                   className={classes.listItem}
@@ -202,7 +202,7 @@ export const PortfolioPage = () => {
                   className={classes.listItem}
                   onClick={goExternalLink('https://www.npmjs.com/package/liquid-parameters')}
                 >
-                  <ListItemText primary="Liquid parameters (lib)" secondary="HVAC engineer's tool" />
+                  <ListItemText primary="Liquid parameters lib" secondary="HVAC engineer's tool" />
                 </ListItem>
               </List>
             </Grid>

@@ -1,12 +1,13 @@
 import { useEffect, useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import {
-  // showAsyncToast,
+  showAsyncToast,
   ESocketEventlist,
   socketConnect,
   socketDisonnect,
   setSiMem,
   setSystemSpace,
+  SET_SOCKET_CONNECTED,
 } from '~/actions'
 import io from 'socket.io-client'
 import { Systeminformation } from 'systeminformation'
@@ -29,6 +30,14 @@ export const useSocket = () => {
     //   })
     // )
   }, [])
+  const onConnect = useCallback(() => {
+    dispatch(showAsyncToast({
+      type: 'success',
+      text: 'Socket connected',
+      delay: 5000,
+    }))
+    dispatch({ type: SET_SOCKET_CONNECTED })
+  }, [dispatch])
   const onDisconnect = useCallback(() => {
     dispatch(socketDisonnect())
   }, [dispatch])
@@ -41,18 +50,23 @@ export const useSocket = () => {
 
   useEffect(() => {
     dispatch(socketConnect(socket))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  useEffect(() => {
+    socket.on('connect', onConnect)
     socket.on(ESocketEventlist.YOURE_WELCOME, onYoureWelcome)
     socket.on(ESocketEventlist.SI_MEM, onSiMem)
     socket.on(ESocketEventlist.SYSTEM_SPACE, onSystemSpace)
     socket.on('disconnect', onDisconnect)
 
     return () => {
+      socket.off('connect', onConnect)
       socket.off(ESocketEventlist.YOURE_WELCOME, onYoureWelcome)
       socket.off(ESocketEventlist.SI_MEM, onSiMem)
       socket.off(ESocketEventlist.SYSTEM_SPACE, onSystemSpace)
       socket.off('disconnect', onDisconnect)
     }
-  }, [dispatch, onYoureWelcome, onSiMem, onDisconnect, socket, onSystemSpace])
+  }, [dispatch, onYoureWelcome, onSiMem, onDisconnect, socket, onSystemSpace, onConnect])
 
   return null
 }

@@ -6,6 +6,8 @@ export const SOCKET_DISCONNECT = 'SOCKET_DISCONNECT'
 export const SET_SOCKET = 'SET_SOCKET'
 export const SET_SI_MEM = 'SET_SI_MEM'
 export const SET_SYSTEM_SPACE = 'SET_SYSTEM_SPACE'
+export const SET_SOCKET_DISCONNECTED = 'SET_SOCKET_DISCONNECTED'
+export const SET_SOCKET_CONNECTED = 'SET_SOCKET_CONNECTED'
 
 export enum ESocketEventlist {
   YOURE_WELCOME = 'YOURE_WELCOME',
@@ -16,8 +18,8 @@ export enum ESocketEventlist {
 }
 
 // NOTE: Only for Saga usage sample:
-export const socketConnect = (socket: Socket) => {
-  return { type: SOCKET_CONNECT, payload: socket }
+export const setSocket = (socket: Socket) => {
+  return { type: SET_SOCKET, payload: socket }
 }
 export const socketDisonnect = () => {
   return { type: SOCKET_DISCONNECT }
@@ -29,6 +31,6 @@ export const setSiMem = (siOutput: Systeminformation.MemData) => {
 export const setSystemSpace = ({ code, stdout, stderr }: any) => {
   return { type: SET_SYSTEM_SPACE, payload: { code, stdout, stderr } }
 }
-export const setSocket = (socket: Socket | null) => {
+export const socketConnect = (socket: Socket) => {
   return { type: SET_SOCKET, payload: socket }
 }

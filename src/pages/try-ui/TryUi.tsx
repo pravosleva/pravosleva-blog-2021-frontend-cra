@@ -13,7 +13,7 @@ import { Carousel } from './components/Carousel'
 
 export const TryUi = () => {
   // const { isDesktop } = useWindowSize()
-  const isConnected = useSelector((state: IRootState) => state.socket.target?.connected)
+  const isConnected = useSelector((state: IRootState) => state.socket.isConnected)
 
   return (
     <>

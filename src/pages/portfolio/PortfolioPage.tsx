@@ -37,7 +37,7 @@ export const PortfolioPage = () => {
         isOpened={isPubProjectVariantsModalOpened}
         onClose={handleClosePub2021}
         titleRenderer={() => (
-          <span>PUB Chat 2021</span>
+          <span>KanBan 2021</span>
         )}
         maxWidth='sm'
         fullWidth
@@ -80,7 +80,7 @@ export const PortfolioPage = () => {
                   // onClick={goExternalLink('https://t.me/pravosleva_bot?start=chat-invite_uxTest')}
                   onClick={handleOpenPub2021}
                 >
-                  <ListItemText primary="Pub Chat 2021" secondary="Sockets & TG bot experience" />
+                  <ListItemText primary="KanBan 2021" secondary="Sockets & TG bot experience" />
                 </ListItem>
                 <ListItem
                   className={classes.listItem}

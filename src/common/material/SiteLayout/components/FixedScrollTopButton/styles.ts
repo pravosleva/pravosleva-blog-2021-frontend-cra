@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles'
 
 export const useStyles = makeStyles((_theme) => ({
   main: {
+    userSelect: 'none',
+    '-webkit-tap-highlight-color': 'transparent',
     position: 'fixed',
     bottom: '16px',
     right: '16px',

@@ -2,7 +2,7 @@
   "name": "pravosleva-blog-no-ssr-front",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:1337",
+  "proxy": "http://pravosleva.ru/api",
   "homepage": "/cra",
   "scripts": {
     "deploy2:prod": "yarn build:local-prod && bash deploy2.prod.sh",

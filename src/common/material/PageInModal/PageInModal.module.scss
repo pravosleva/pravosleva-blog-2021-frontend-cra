@@ -1,0 +1,39 @@
+@import '~/common/material/scss-vars/monitors.scss';
+
+.img-preview-wrapper {
+  color: #FFF;
+  @media (min-width: calc(#{$md}px + 1px)) {
+    padding: 16px;
+  }
+  @media (max-width: #{$md}px) {
+    padding: 0px;
+  }
+  border-radius: 8px;
+}
+.img-preview-container {
+  @media (min-width: calc(#{$md}px + 1px)) {
+    padding: 16px;
+  }
+  @media (max-width: #{$md}px) {
+    padding: 16px;
+    border-radius: 8px;
+  }
+  .title {
+    font-weight: bold;
+    @media (min-width: calc(#{$md}px + 1px)) {
+      font-size: 1.5em;
+    }
+    @media (max-width: #{$md}px) {
+      font-size: 1.4em;
+    }
+  }
+}
+.created-updated-box {
+  display: flex;
+  @media (min-width: calc(#{$md}px + 1px)) {
+    justify-content: space-between;
+  }
+  @media (max-width: #{$md}px) {
+    flex-direction: column;
+  }
+}
